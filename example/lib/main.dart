@@ -4,7 +4,7 @@ import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 void main() => runApp(
       new MaterialApp(
         home: WebviewScaffold(
-          url: "https://github.com/flutter-app-sample/flutter_app_sample",
+          url: "https://github.com/pdliuw/flutter_route/blob/master/README.md",
           appBar: AppBar(
             title: Text("flutter_route"),
           ),
