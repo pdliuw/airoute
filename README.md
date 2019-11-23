@@ -3,7 +3,7 @@
 ![totem](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/totem_four_logo.jpg?raw=true)
 
 
-特点: ``**flutter_route:支持无需context的路由操作.**``
+亮点: ``flutter_route:支持无需context的路由操作.``
 
 [flutter_route](https://github.com/pdliuw/flutter_route) 在[项目](https://github.com/flutter-app-sample/flutter_app_sample)中的实战应用[flutter sample](https://github.com/flutter-app-sample/flutter_app_sample)
 
@@ -109,4 +109,20 @@ RouteManager.getInstance().pushNamedAndRemoveUntil(
                 RouteManager.getInstance().pop();
 
 ```
+
+## LICENSE
+
+   Copyright 2019 pdliuw
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
 
