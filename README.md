@@ -1,6 +1,6 @@
 # flutter_route 
 
-![totem](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/totem_four_logo.jpg?raw=true)
+![totem](https://raw.githubusercontent.com/pdliuw/pdliuw.github.io/master/images/totem_four_logo.jpg)
 
 
 亮点: ``flutter_route:支持无需context的路由操作.``
