@@ -57,11 +57,15 @@ import 'package:flutter_route/flutter_route.dart';
 
       ///全局静态路由的配置！
       ///路由名称前要加"/"来标记路由名！
-      routes: RouteManager.initializeRoutes(
-        routes: <String, WidgetBuilder>{
-          "/LaunchPage": (BuildContext context) => LaunchPage(),
-        },
-      ),
+        routes: RouteManager.initializeRoutes(
+          routes: <String, WidgetBuilder>{
+            "/routeName": (BuildContext context) => RouteNamePage(),
+          },
+        ),
+        navigatorObservers: [
+          RouteManager.getInstance(),
+        ],
+
 
 ```
 
