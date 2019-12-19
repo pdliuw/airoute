@@ -25,7 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
 
   # Route
-  flutter_route:
+  airoute:
     path: /Users/air/develop_work/flutter/personal_package/flutter_route
 
   # WebView

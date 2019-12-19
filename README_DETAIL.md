@@ -101,6 +101,13 @@ void main() {
 
 ```
 
+内置动画：
+
+侧滑：AirouteTransition.Slide
+渐变：AirouteTransition.Fade
+缩放：AirouteTransition.Scale
+旋转：AirouteTransition.Rotation
+
 *4、传递参数、接收参数
 
 传递参数
@@ -131,6 +138,38 @@ class Page extends StatefulWidget with AirArgumentReceiver {
   }
 }
 
+
+```
+
+*5、跳转新页面，并关闭当前页面
+
+```
+
+              Airoute.pushReplacementNamed(
+                routeName: "/routeName",
+              );
+
+```
+
+
+*6、跳转新页面，并关闭之前的所有页面
+
+```
+
+              Airoute.pushNamedAndRemoveUntil(
+                newRouteName: "/routeName",
+              );
+
+```
+
+*7、跳转新页面，并关闭除'untilRouteName'外的之前的所有页面
+
+```
+
+              Airoute.pushNamedAndRemoveUntil(
+                newRouteName: "/routeName",
+                untilRouteName: "/untilRouteName",
+              );
 
 ```
 

@@ -1,5 +1,7 @@
-part of flutter_route;
+part of airoute;
 
+///
+/// Animation
 typedef RoutePageAnimation = Widget Function(
     BuildContext context,
     Animation<double> animation,
@@ -10,84 +12,27 @@ typedef RoutePageAnimation = Widget Function(
 /// Route manager
 class RouteManager extends NavigatorObserver {
   ///
-  /// 配置路由
-  static Map<String, WidgetBuilder> _configRoutes = {};
+  /// Route config map.
+  static Map<String, AirouteBuilder> _route = {};
 
+  ///
+  /// RouteManager.
   static RouteManager _singleInstance;
 
   ///
-  /// stream相关
+  /// StreamController.
   static StreamController _streamController;
 
-  // 用来路由跳转
+  ///
+  /// Navigator.
   NavigatorState navigator;
 
   ///
-  /// default scale animation
-  static Widget _defaultRoutePageScaleAnimation(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      Widget page) {
-    return ScaleTransition(
-      scale: animation,
-      alignment: Alignment.topRight,
-      child: page,
-    );
-  }
-
-  ///
-  /// default slide animation
-  static Widget defaultRoutePageSlideAnimation(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      Widget page) {
-    return SlideTransition(
-      position: Tween<Offset>(
-        begin: const Offset(1.0, 0.0),
-        end: const Offset(0.0, 0.0),
-      ).animate(animation),
-      child: page,
-    );
-  }
-
-  ///
-  /// default fade animation
-  static Widget defaultRoutePageFadeAnimation(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      Widget page) {
-    return FadeTransition(
-      opacity: animation,
-      child: page,
-    );
-  }
-
-  ///
-  /// default rotation animation
-  static Widget defaultRoutePageRotationAnimation(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      Widget page) {
-    return RotationTransition(
-      turns: animation,
-      alignment: Alignment.center,
-      child: page,
-    );
-  }
-
-  ///
-  /// default route page animation!
-  static RoutePageAnimation _defaultRoutePageAnimation =
-      defaultRoutePageSlideAnimation;
-
-  ///
-  /// private constructor
+  /// RouteManaqer.
   RouteManager._();
 
+  ///
+  /// Instance.
   static RouteManager getInstance() {
     if (_singleInstance == null) {
       _singleInstance = RouteManager._();
@@ -97,25 +42,57 @@ class RouteManager extends NavigatorObserver {
     return _singleInstance;
   }
 
-  static Map<String, WidgetBuilder> initializeRoutes(
-      {@required Map<String, WidgetBuilder> routes}) {
-    _configRoutes = routes;
-    return _configRoutes;
+  ///
+  /// Initialize routes[_route].
+  static Map<String, AirouteBuilder> initializeRoutes({
+    @required Map<String, AirouteBuilder> routes,
+  }) {
+    _route = routes ?? {};
+    return null;
   }
 
   ///
-  /// 当前路由栈
+  /// Initialize generate route.
+  static Route<dynamic> initializeGenerateRoute(RouteSettings routeSettings) {
+    bool isInitialRoute = routeSettings.isInitialRoute;
+    String routeName = routeSettings.name;
+    dynamic arguments = routeSettings.arguments;
+    //Builder.
+    AirouteBuilder airBuilder = _route[routeName];
+    Widget widget = airBuilder();
+
+    if (widget is AirArgumentReceiver) {
+      AirArgumentReceiver argumentReceiver = widget as AirArgumentReceiver;
+      argumentReceiver.receive(AirArgument(argument: arguments));
+    }
+
+    return CupertinoPageRoute(
+      builder: (_) {
+        return widget;
+      },
+      settings: routeSettings,
+    );
+  }
+
+  ///
+  /// Routes.
   static List<Route> _mRoutes;
 
+  ///
+  /// Route.
   List<Route> get routes => _mRoutes;
 
   ///
-  /// 当前路由
+  /// Current route.
   Route get currentRoute => _mRoutes[_mRoutes.length - 1];
 
   StreamController get streamController => _streamController;
 
-  BuildContext context({String routeName}) {
+  ///
+  /// Context.
+  BuildContext context({
+    String routeName,
+  }) {
     if (routeName != null) {
       return PageRouteBuilder(
         settings: RouteSettings(name: routeName),
@@ -125,84 +102,131 @@ class RouteManager extends NavigatorObserver {
   }
 
   ///
-  /// replace 页面
-  pushReplacementNamed(String routeName, [WidgetBuilder builder]) {
-    return navigator.pushReplacement(
-      CupertinoPageRoute(
-        builder: builder ?? _configRoutes[routeName],
-        settings: RouteSettings(name: routeName),
-      ),
+  /// Replace.
+  pushReplacementNamed({
+    String routeName,
+    dynamic argument,
+  }) {
+    return navigator.pushReplacementNamed(
+      routeName,
+      arguments: argument,
     );
   }
 
   ///
-  /// push 页面
-  pushNamed(String routeName, [WidgetBuilder builder]) {
-    return navigator.push(
-      CupertinoPageRoute(
-        builder: builder ?? _configRoutes[routeName],
-        settings: RouteSettings(name: routeName),
-      ),
+  /// Push.
+  pushNamed({
+    String routeName,
+    dynamic argument,
+  }) {
+    return navigator.pushNamed(
+      routeName,
+      arguments: argument,
     );
   }
 
+  ///
+  /// Push with animation.
   pushNamedWithAnimation({
     @required String routeName,
-    RoutePageAnimation routePageAnimation,
+    dynamic argument,
+    RoutePageAnimation routePageAnimation = AirouteTransition.Slide,
+    Duration duration = const Duration(milliseconds: 500),
   }) {
-    if (routePageAnimation == null) {
-      routePageAnimation = _defaultRoutePageAnimation;
-    }
     return navigator.push(
       PageRouteBuilder(
-        transitionDuration: Duration(milliseconds: 500),
-        settings: RouteSettings(name: routeName),
+        transitionDuration: duration,
+        settings: RouteSettings(
+          name: routeName,
+          arguments: argument,
+        ),
         pageBuilder: (BuildContext context, Animation<double> animation,
             Animation<double> secondaryAnimation) {
-          /*
-          WidgetBuilder
-           */
-          WidgetBuilder widgetBuilder = _configRoutes[routeName];
-          Widget widget = widgetBuilder(context);
-          /*
-          Route page animation
-           */
+          //WidgetBuilder
+          AirouteBuilder airouteBuilder = _route[routeName];
+          Widget widget = airouteBuilder();
+          if (widget is AirArgumentReceiver) {
+            AirArgumentReceiver argumentReceiver =
+                widget as AirArgumentReceiver;
+            argumentReceiver.receive(AirArgument(argument: argument));
+          }
+          //Route page animation
           return routePageAnimation(
-              context, animation, secondaryAnimation, widget);
+            context,
+            animation,
+            secondaryAnimation,
+            widget,
+          );
         },
       ),
     );
   }
 
   ///
-  /// pop 页面
-  pop<T extends Object>([T result]) {
-    navigator.pop(result);
+  /// Pop.
+  pop({
+    dynamic result,
+  }) {
+    if (navigator.canPop()) {
+      navigator.pop(result);
+    }
   }
 
   ///
-  /// push一个页面， 移除该页面下面所有页面
-  pushNamedAndRemoveUntil(
-      {@required String newRouteName,
-      RoutePageAnimation routePageAnimation =
-          _defaultRoutePageScaleAnimation}) {
-    return navigator.pushNamedAndRemoveUntil(
-      newRouteName,
-      (Route<dynamic> route) {
-        return false;
-      },
-    );
+  /// PopUntil[untilRouteName].
+  popUntil({
+    String untilRouteName,
+  }) {
+    bool isPopAll = untilRouteName == null ? true : false;
+    if (isPopAll) {
+      navigator.popUntil(
+        (Route<dynamic> route) {
+          return false;
+        },
+      );
+    } else {
+      navigator.popUntil(ModalRoute.withName('$untilRouteName'));
+    }
   }
 
   ///
-  /// 当调用Navigator.push时回调
+  /// Push[newRouteName]and remove until [untilRouteName].
+  pushNamedAndRemoveUntil({
+    @required String newRouteName,
+    String untilRouteName,
+    dynamic argument,
+    RoutePageAnimation routePageAnimation = AirouteTransition.Slide,
+  }) {
+    bool isRemoveAll = untilRouteName == null ? true : false;
+
+    if (isRemoveAll) {
+      //remove all.
+      return navigator.pushNamedAndRemoveUntil(
+        newRouteName,
+        (Route<dynamic> route) {
+          return false;
+        },
+        arguments: argument,
+      );
+    } else {
+      //not remove all.
+      return navigator.pushNamedAndRemoveUntil(
+        newRouteName,
+        ModalRoute.withName('$untilRouteName'),
+        arguments: argument,
+      );
+    }
+  }
+
+  ///
+  /// DisPush.
   @override
   void didPush(Route route, Route previousRoute) {
     super.didPush(route, previousRoute);
     if (_mRoutes == null) {
       _mRoutes = new List<Route>();
     }
-    // 这里过滤调push的是dialog的情况
+    // filter route type.
     if (route is CupertinoPageRoute || route is MaterialPageRoute) {
       _mRoutes.add(route);
       routeObserver();
@@ -210,7 +234,7 @@ class RouteManager extends NavigatorObserver {
   }
 
   ///
-  /// 当调用Navigator.replace时回调
+  /// DisReplace.
   @override
   void didReplace({Route newRoute, Route oldRoute}) {
     super.didReplace();
@@ -222,7 +246,7 @@ class RouteManager extends NavigatorObserver {
   }
 
   ///
-  /// 当调用Navigator.pop时回调
+  /// DidPop.
   @override
   void didPop(Route route, Route previousRoute) {
     super.didPop(route, previousRoute);
@@ -232,6 +256,8 @@ class RouteManager extends NavigatorObserver {
     }
   }
 
+  ///
+  /// DidRemove.
   @override
   void didRemove(Route removedRoute, Route oldRoute) {
     super.didRemove(removedRoute, oldRoute);
@@ -242,14 +268,9 @@ class RouteManager extends NavigatorObserver {
     }
   }
 
+  ///
+  /// RouteObserver.
   void routeObserver() {
-//  LogUtil.i(sName, '&&路由栈&&');
-//  LogUtil.i(sName, _mRoutes);
-//  LogUtil.i(sName, '&&当前路由&&');
-//  LogUtil.i(sName, _mRoutes[_mRoutes.length - 1]);
-    /*
-    当前页面的navigator，用来路由跳转
-     */
     navigator = _mRoutes[_mRoutes.length - 1].navigator;
     streamController.sink.add(_mRoutes);
   }
