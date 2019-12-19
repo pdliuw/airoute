@@ -100,11 +100,10 @@ class Airoute {
     String routeName,
     dynamic argument,
   }) {
-    return RouteManager.getInstance()
-      ..pushNamed(
-        routeName: routeName,
-        argument: argument,
-      );
+    return RouteManager.getInstance().pushNamed(
+      routeName: routeName,
+      argument: argument,
+    );
   }
 
   ///
