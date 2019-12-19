@@ -2,8 +2,7 @@
 
 ![totem](https://raw.githubusercontent.com/pdliuw/pdliuw.github.io/master/images/totem_four_logo.jpg)
 
-
-亮点: ``Airoute:支持无需context的路由操作.``
+## 我们的宗旨是：帮助开发者更加便利开发、切身体会编程之美！
 
 [Airoute](https://github.com/pdliuw/flutter_route) 在[项目](https://github.com/flutter-app-sample/flutter_app_sample)中的实战应用[flutter sample](https://github.com/flutter-app-sample/flutter_app_sample)
 

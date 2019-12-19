@@ -2,6 +2,7 @@
 
 ![totem](https://raw.githubusercontent.com/pdliuw/pdliuw.github.io/master/images/totem_four_logo.jpg)
 
+## 我们的宗旨是：帮助开发者更加便利开发、切身体会编程之美！
 
 亮点: ``Airoute:支持无需context的路由操作.``
 
