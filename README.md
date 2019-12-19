@@ -6,7 +6,7 @@
 
 亮点: ``Airoute:支持无需context的路由操作.``
 
-[Airoute](https://github.com/pdliuw/flutter_route) 在[项目](https://github.com/flutter-app-sample/flutter_app_sample)中的实战应用[flutter sample](https://github.com/flutter-app-sample/flutter_app_sample)
+[Airoute](https://github.com/pdliuw/airoute) 在[项目](https://github.com/flutter-app-sample/flutter_app_sample)中的实战应用[flutter sample](https://github.com/flutter-app-sample/flutter_app_sample)
 
 ## 1.安装
 

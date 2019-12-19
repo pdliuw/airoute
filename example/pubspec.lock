@@ -4,9 +4,11 @@ packages:
   airoute:
     dependency: "direct main"
     description:
-      path: "/Users/air/develop_work/flutter/personal_package/flutter_route"
-      relative: false
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "2128462ad67f2844f281dadf97c514562bc41150"
+      url: "https://github.com/pdliuw/airoute.git"
+    source: git
     version: "0.0.1"
   archive:
     dependency: transitive

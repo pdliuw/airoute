@@ -26,7 +26,8 @@ dependencies:
 
   # Route
   airoute:
-    path: /Users/air/develop_work/flutter/personal_package/flutter_route
+    git:
+      url: https://github.com/pdliuw/airoute.git
 
   # WebView
   flutter_webview_plugin: ^0.3.0
