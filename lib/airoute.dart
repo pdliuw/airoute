@@ -20,7 +20,7 @@ part 'route/transition.dart';
 class Airoute {
   ///
   /// Create material app.
-  static createMaterialApp({
+  static MaterialApp createMaterialApp({
     Key key,
     GlobalKey<NavigatorState> navigatorKey,
     Widget home,
@@ -50,7 +50,7 @@ class Airoute {
     Map<LogicalKeySet, Intent> shortcuts,
     Map<LocalKey, ActionFactory> actions,
   }) {
-    AirouteApp.createMaterialApp(
+    return AirouteApp.createMaterialApp(
       key: key,
       navigatorKey: navigatorKey,
       home: home,
