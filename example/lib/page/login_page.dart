@@ -27,22 +27,10 @@ class _LoginState extends State<LaunchPage> {
           Text("Hello world ${widget._content}"),
           MaterialButton(
             onPressed: () {
-//              Airoute.pushNamedAndRemoveUntil(
-//                newRouteName: "/routeName",
-//                untilRouteName: "/untilRouteName",
-//              );
               Airoute.pushNamed(
-                routeName: "/routeName",
+                routeName: "/SecondPage",
                 argument: "遇见你，我很开心😄😄😄",
               );
-//              Airoute.pushNamedWithAnimation(
-//                  routeName: "/routeName",
-//                  routePageAnimation: AirouteTransition.Slide);
-//              Airoute.pushNamedWithAnimation(
-//                routeName: "/SecondPage",
-//                argument: "你收到了吗？我猜测你收到了！我很开心😄😄😄😄😄",
-//                routePageAnimation: AirouteTransition.Slide,
-//              );
             },
             child: Text("跳转下一页"),
           ),
