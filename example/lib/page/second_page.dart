@@ -24,9 +24,17 @@ class _SecondPageState extends State<SecondPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue,
-      appBar: AppBar(),
-      body: Column(
-        children: <Widget>[Text("Second page ${widget._content}")],
+      appBar: AppBar(
+        elevation: 0,
+      ),
+      body: Center(
+        child: Text(
+          "以下为上页传递的数据\n\n\n${widget._content}",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
