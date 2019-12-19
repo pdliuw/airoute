@@ -135,6 +135,8 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 
 ```
 
+[查看更多](https://github.com/pdliuw/airoute/blob/master/README_DETAIL.md)
+
 
 
 ## LICENSE
