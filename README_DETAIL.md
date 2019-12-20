@@ -4,6 +4,12 @@
 
 ## 我们的宗旨是：帮助开发者更加便利开发、切身体会编程之美！
 
+### airoute:
+
+*1、支持无需context的路由管理, 
+*2、支持‘非侵入式参数传递’的路由管理，
+*3、让你爱上路由管理的airoute
+
 [Airoute](https://github.com/pdliuw/airoute) 在[项目](https://github.com/flutter-app-sample/flutter_app_sample)中的实战应用[flutter sample](https://github.com/flutter-app-sample/flutter_app_sample)
 
 ## 1.安装
