@@ -15,19 +15,15 @@
 ## 效果图
 
 |iOS|Android|
-
 |:-|:-|
 
 |![airoute_ios](https://github.com/pdliuw/airoute/blob/master/example/raw/airoute_render_ios.gif)|![airoute_android](https://github.com/pdliuw/airoute/blob/master/example/raw/airoute_render_android.gif)|
-
 |:-|:-|
 
 |macOS|web|
-
 |:-|:-|
 
 |![airoute_macos](https://github.com/pdliuw/airoute/blob/master/example/raw/airoute_render_macos.gif)|![airoute_web](https://github.com/pdliuw/airoute/blob/master/example/raw/airoute_render_web.gif)|
-
 |:-|:-|
 
 
