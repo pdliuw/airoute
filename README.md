@@ -12,6 +12,10 @@
 
 [Airoute](https://github.com/pdliuw/airoute) 在[项目](https://github.com/flutter-app-sample/flutter_app_sample)中的实战应用[flutter sample](https://github.com/flutter-app-sample/flutter_app_sample)
 
+## 效果图
+
+![airoute_ios](https://github.com/pdliuw/airoute/blob/master/example/raw/airoute_render_ios.gif)
+
 ## 1.安装
 
 使用当前包作为依赖库
