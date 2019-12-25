@@ -11,8 +11,10 @@
 
 ### airoute:
 
-*1、Support routing management without context, 
-*2、Support 'non-intrusive parameter passing' routing management,
+*1、Support routing management without context
+
+*2、Support 'non-intrusive parameter passing' routing management
+
 *3、Airoute that makes you fall in love with routing management
 
 [Airoute](https://github.com/pdliuw/airoute) in the[Project](https://github.com/flutter-app-sample/flutter_app_sample)Practical application[flutter sample](https://github.com/flutter-app-sample/flutter_app_sample)
