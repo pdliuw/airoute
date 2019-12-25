@@ -4,7 +4,7 @@
 
 -----
 
-|[English Document]()|[中文文档](https://github.com/pdliuw/airoute)|
+|[English Document](https://github.com/pdliuw/airoute/blob/master/README-EN.md)|[中文文档](https://github.com/pdliuw/airoute)|
 |:-|:-|
 
 ## 我们的宗旨是：帮助开发者更加便利开发、切身体会编程之美！
