@@ -7,17 +7,17 @@
 |[English Document](https://github.com/pdliuw/airoute/blob/master/README-EN.md)|[中文文档](https://github.com/pdliuw/airoute)|
 |:-|:-|
 
-## 我们的宗旨是：帮助开发者更加便利开发、切身体会编程之美！
+## Our aim is to help developers make development more convenient and experience the beauty of programming!
 
 ### airoute:
 
-*1、支持无需context的路由管理, 
-*2、支持‘非侵入式参数传递’的路由管理，
-*3、让你爱上路由管理的airoute
+*1、Support routing management without context, 
+*2、Support 'non-intrusive parameter passing' routing management,
+*3、Airoute that makes you fall in love with routing management
 
-[Airoute](https://github.com/pdliuw/airoute) 在[项目](https://github.com/flutter-app-sample/flutter_app_sample)中的实战应用[flutter sample](https://github.com/flutter-app-sample/flutter_app_sample)
+[Airoute](https://github.com/pdliuw/airoute) in the[Project](https://github.com/flutter-app-sample/flutter_app_sample)Practical application[flutter sample](https://github.com/flutter-app-sample/flutter_app_sample)
 
-## 效果图
+## effect
 
 |iOS|Android|
 |:-|:-|
@@ -29,13 +29,14 @@
 |![airoute_macos](https://github.com/pdliuw/airoute/blob/master/example/raw/airoute_render_macos.gif)|![airoute_web](https://github.com/pdliuw/airoute/blob/master/example/raw/airoute_render_web.gif)|
 |:-|:-|
 
-## 1.安装
 
-使用当前包作为依赖库
+## 1.Installation
 
-### 1. 依赖此库
+Use the current package as a dependent library
 
-在文件 'pubspec.yaml' 中添加
+### 1. Rely on this library
+
+Add in file 'pubspec.yaml'
 
 ```
 
@@ -46,9 +47,9 @@
 
 ```
 
-### 2. 安装此库
+### 2. Install this library
 
-你可以通过下面的命令行来安装此库
+You can install this library via the command line below
 
 ```
 
@@ -57,11 +58,12 @@ $ flutter pub get
 
 ```
 
-你也可以通过项目开发工具通过可视化操作来执行上述步骤
+You can also perform the above steps through the visual operation through the project development tool
 
-### 3. 导入此库
 
-现在，在你的Dart编辑代码中，你可以使用：
+### 3. Import this library
+
+Now, in your Dart editing code, you can use:
 
 ```
 
@@ -69,18 +71,18 @@ import 'package:airoute/airoute.dart';
 
 ```
 
-## 2.使用
+## 2.Usage
 
-### 1.在你的项目入口'main.dart'中配置：
+### 1.Configure in your project entry 'main.dart':
 
-Airoute 全局配置
+Airoute Global configuration
 
 ```
 
 void main() {
   runApp(
     ///
-    /// 配置Airoute
+    /// Configuration Airoute
     Airoute.createMaterialApp(
       home: LaunchPage(),
       routes: <String, AirouteBuilder>{
@@ -95,9 +97,9 @@ void main() {
 ```
 
 
-### 2.调用/应用
+### 2.Call / apply
 
-*1、跳转新页面
+*1、Jump to new page
 
 ```
 
@@ -105,7 +107,7 @@ void main() {
 
 ```
 
-*2、关闭页面
+*2、Close page
 
 ```
 
@@ -113,7 +115,7 @@ void main() {
 
 ```
 
-*3、跳转新页面，并添加动画
+*3、Jump to new page and add animation
 
 ```
 
@@ -123,27 +125,20 @@ void main() {
 
 ```
 
-内置动画：
+*4、Passing parameters, receiving parameters
 
-侧滑：AirouteTransition.Slide
-渐变：AirouteTransition.Fade
-缩放：AirouteTransition.Scale
-旋转：AirouteTransition.Rotation
-
-*4、传递参数、接收参数
-
-传递参数
+Passing parameters
 
 ```
 
               Airoute.pushNamed(
                 routeName: "/Page",
-                argument: "遇见你，我很开心😄😄😄",
+                argument: "I'm happy to meet you😄😄😄",
               );
 
 ```
 
-接收参数
+Receiving parameters
 
 ```
 
@@ -156,14 +151,14 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 
   @override
   void receive(AirArgument argument) {
-    print("收到${argument.argument}参数了,我很开心😄😄😄");
+    print("Received${argument.argument}parameters,I am happy😄😄😄");
   }
 }
 
 
 ```
 
-*5、跳转新页面，并关闭当前页面
+*5、Jump to a new page and close the current page
 
 ```
 
@@ -174,7 +169,7 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 ```
 
 
-*6、跳转新页面，并关闭之前的所有页面
+*6、Jump to new page and close all previous pages
 
 ```
 
@@ -184,7 +179,7 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 
 ```
 
-*7、跳转新页面，并关闭除'untilRouteName'外的之前的所有页面
+*7、Jump to new page and close all previous pages except 'untilRouteName'
 
 ```
 
