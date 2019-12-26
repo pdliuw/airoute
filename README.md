@@ -139,6 +139,45 @@ void main() {
 
 ```
 
+
+传递number参数
+
+```
+
+              Airoute.pushNamed(
+                routeName: "/SecondPage",
+                argument: 0,
+              );
+
+```
+
+传递Map参数
+
+```
+              Airoute.pushNamed(
+                routeName: "/Page",
+                argument: {
+                  "account":"this is accont",
+                  "password":"this is password ",
+                },
+```        
+
+传递Array参数
+
+```
+              Airoute.pushNamed(
+                routeName: "/Page",
+                argument: [
+                  "Air",
+                  "James",
+                  "Lucy",
+                  "Tom",
+                ],
+              );
+              
+```
+            
+
 接收参数
 
 ```
