@@ -140,6 +140,44 @@ Passing parameters
 
 ```
 
+Passing number parameters
+
+```
+
+              Airoute.pushNamed(
+                routeName: "/SecondPage",
+                argument: 0,
+              );
+
+```
+
+Passing Map parameters
+
+```
+              Airoute.pushNamed(
+                routeName: "/Page",
+                argument: {
+                  "account":"this is accont",
+                  "password":"this is password ",
+                },
+```        
+
+Passing Array parameters
+
+```
+              Airoute.pushNamed(
+                routeName: "/Page",
+                argument: [
+                  "Air",
+                  "James",
+                  "Lucy",
+                  "Tom",
+                ],
+              );
+              
+```
+
+
 Receiving parameters
 
 ```
