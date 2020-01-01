@@ -42,11 +42,13 @@ Use the current package as a dependent library
 
 Add in file 'pubspec.yaml'
 
+[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
+
 ```
 
 dependencies:
 
-  airoute: ^0.0.1
+  airoute: ^version
 
 ```
 

@@ -41,11 +41,13 @@
 
 在文件 'pubspec.yaml' 中添加
 
+[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
+
 ```
 
 dependencies:
 
-  airoute: ^0.0.1
+  airoute: ^version
 
 ```
 
