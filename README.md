@@ -11,6 +11,8 @@
 
 ### airoute:
 
+[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
+
 *1、支持无需context的路由管理, 
 
 *2、支持‘非侵入式参数传递’的路由管理，

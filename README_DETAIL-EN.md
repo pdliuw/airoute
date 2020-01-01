@@ -11,6 +11,8 @@
 
 ### airoute:
 
+[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
+
 *1、Support routing management without context
 
 *2、Support 'non-intrusive parameter passing' routing management
