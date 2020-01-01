@@ -1,8 +1,12 @@
 ## [0.0.1] -  Route.
 
-*  支持：全局路由配置
-*  支持：无context的路由跳转
+*  Support: manager route without context.
+*  Support: global config.
 
 ## [0.1.1] -  Route.
 
-*  支持：参数的传递，传输的接收
+*  Support: argument.
+
+## [0.1.2] -  Route.
+
+*  Add: repository.
