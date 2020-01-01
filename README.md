@@ -42,6 +42,16 @@
 
 ```
 
+dependencies:
+
+  airoute: ^0.0.1
+
+```
+
+或以这种方式添加
+
+```
+
   # Route package.
   airoute:
     git:

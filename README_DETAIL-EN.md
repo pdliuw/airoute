@@ -42,6 +42,16 @@ Add in file 'pubspec.yaml'
 
 ```
 
+dependencies:
+
+  airoute: ^0.0.1
+
+```
+
+or
+
+```
+
   # Route package.
   airoute:
     git:

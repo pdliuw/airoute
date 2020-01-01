@@ -1,6 +1,6 @@
 name: airoute
-description: A new Flutter route package.
-version: 0.0.1
+description: 1、Support routing management without context,2、Support 'non-intrusive parameter passing' routing management,3、Airoute that makes you fall in love with routing management
+version: 0.1.1
 homepage: https://pdliuw.github.io/
 
 environment:
