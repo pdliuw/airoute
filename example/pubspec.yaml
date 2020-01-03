@@ -25,9 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
 
   # Route
-  airoute:
-    git:
-      url: https://github.com/pdliuw/airoute.git
+  airoute: ^0.1.2
 
 
   # WebView

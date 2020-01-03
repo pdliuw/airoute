@@ -4,12 +4,10 @@ packages:
   airoute:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: c8bd0c838bb57b45ea48a7ee14db1c067b455263
-      url: "https://github.com/pdliuw/airoute.git"
-    source: git
-    version: "0.0.1"
+      name: airoute
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
   archive:
     dependency: transitive
     description:
