@@ -70,8 +70,6 @@ class AirouteApp {
       checkerboardOffscreenLayers: checkerboardOffscreenLayers,
       showSemanticsDebugger: showSemanticsDebugger,
       debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-      shortcuts: shortcuts,
-      actions: actions,
     );
   }
 }

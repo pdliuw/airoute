@@ -10,3 +10,7 @@
 ## [0.1.2] -  Route.
 
 *  Add: repository.
+
+## [0.1.3] - Route.
+
+* Fix: shortcuts actions.
