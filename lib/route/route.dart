@@ -21,6 +21,7 @@ class RouteManager extends NavigatorObserver {
 
   ///
   /// StreamController.
+  // ignore: close_sinks
   static StreamController _streamController;
 
   ///
@@ -63,7 +64,13 @@ class RouteManager extends NavigatorObserver {
 
     if (widget is AirArgumentReceiver) {
       AirArgumentReceiver argumentReceiver = widget as AirArgumentReceiver;
-      argumentReceiver.receive(AirArgument(argument: arguments));
+      argumentReceiver.receive(
+        AirArgument(
+          routeName: routeName,
+          argument: arguments,
+          isInitialRoute: isInitialRoute,
+        ),
+      );
     }
 
     return CupertinoPageRoute(
@@ -96,6 +103,10 @@ class RouteManager extends NavigatorObserver {
     if (routeName != null) {
       return PageRouteBuilder(
         settings: RouteSettings(name: routeName),
+        pageBuilder: (BuildContext context, Animation animation,
+            Animation secondaryAnimation) {
+          return _route[routeName]();
+        },
       )?.navigator?.context;
     }
     return currentRoute?.navigator?.context;
@@ -148,7 +159,12 @@ class RouteManager extends NavigatorObserver {
           if (widget is AirArgumentReceiver) {
             AirArgumentReceiver argumentReceiver =
                 widget as AirArgumentReceiver;
-            argumentReceiver.receive(AirArgument(argument: argument));
+            argumentReceiver.receive(
+              AirArgument(
+                argument: argument,
+                routeName: routeName,
+              ),
+            );
           }
           //Route page animation
           return routePageAnimation(

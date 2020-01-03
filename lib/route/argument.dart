@@ -6,7 +6,9 @@ class AirArgument {
   AirArgument({
     this.key,
     this.tag,
+    this.routeName,
     this.argument,
+    this.isInitialRoute = false,
   });
 
   ///
@@ -18,11 +20,19 @@ class AirArgument {
   String tag;
 
   ///
+  /// [routeName]
+  String routeName;
+
+  ///
+  /// [isInitialRoute]
+  bool isInitialRoute;
+
+  ///
   /// [argument] is the data.
   dynamic argument;
 
   @override
   String toString() {
-    return "key:$key, tag:$tag, argument:${argument.toString()}";
+    return "key:$key, tag:$tag, routeName:$routeName, argument:${argument.toString()}, isInitialRoute:$isInitialRoute";
   }
 }
