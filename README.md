@@ -214,6 +214,9 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 
 *4、更多用法[点击，查看更多](https://github.com/pdliuw/airoute/blob/master/README_DETAIL.md)
 
+### 待办
+
+* 支持： 路由拦截器.
 
 
 ## LICENSE
