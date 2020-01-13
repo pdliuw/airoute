@@ -26,6 +26,8 @@ dependencies:
 
   # Route
   airoute: ^0.1.6
+  provider: ^4.0.1
+  oktoast: ^2.3.0
 
 
   # WebView
