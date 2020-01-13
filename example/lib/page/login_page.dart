@@ -55,10 +55,33 @@ class _LoginState extends State<LaunchPage> {
           ),
           MaterialButton(
             onPressed: () {
-              Airoute.pushNamed(
+              Airoute.pushNamedWithAnimation(
                 routeName: "/SecondPage",
                 argument: "$_content \n 遇见你，我很开心😄😄😄",
+                routePageAnimation: AirouteTransition.Slide,
+                duration: Duration(milliseconds: 500),
               );
+//              Airoute.pushNamedWithAnimation(
+//                routeName: "/routeName",
+//                routePageAnimation: (
+//                  BuildContext context,
+//                  Animation<double> animation,
+//                  Animation<double> secondaryAnimation,
+//                  Widget page,
+//                ) {
+//                  return SlideTransition(
+//                    position: Tween<Offset>(
+//                      begin: const Offset(1.0, 0.0),
+//                      end: const Offset(0.0, 0.0),
+//                    ).animate(animation),
+//                    child: page,
+//                  );
+//                },
+//              );
+//              Airoute.pushNamedWithAnimation(
+//                routeName: "/SecondPage",
+//                argument: "$_content \n 遇见你，我很开心😄😄😄",
+//              );
             },
             color: Theme.of(context).primaryColor,
             textColor: Colors.white,
