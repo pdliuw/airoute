@@ -1,4 +1,4 @@
-# Airoute example | 爱路由 示例
+# Airoute example
 
 ![totem](https://raw.githubusercontent.com/pdliuw/pdliuw.github.io/master/images/totem_four_logo.jpg)
 
@@ -7,24 +7,24 @@
 |[English Document](https://github.com/pdliuw/airoute/blob/master/example/README_EN.md)|[中文文档](https://github.com/pdliuw/airoute/tree/master/example)|
 |:-|:-|
 
-## 我们的宗旨是：帮助开发者更加便利开发、切身体会编程之美！
+## Our aim is to help developers make development more convenient and experience the beauty of programming!
 
 ### airoute:
 
 [![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
 
-*1、支持无需context的路由管理, 
+*1、Support routing management without context
 
-*2、支持‘非侵入式参数传递’的路由管理，
+*2、Support 'non-intrusive parameter passing' routing management
 
-*3、让你爱上路由管理的airoute
+*3、Airoute that makes you fall in love with routing management
 
-[Airoute](https://github.com/pdliuw/airoute) 在[项目](https://github.com/flutter-app-sample/flutter_app_sample)中的实战应用[flutter sample](https://github.com/flutter-app-sample/flutter_app_sample)
+[Airoute](https://github.com/pdliuw/airoute) in the[Project](https://github.com/flutter-app-sample/flutter_app_sample)Practical application[flutter sample](https://github.com/flutter-app-sample/flutter_app_sample)
 
 
-## 使用介绍
+## Usage
 
-### 1、全局配置
+### 1、Global config
 
 ```
         
@@ -38,7 +38,7 @@
         void main() {
           runApp(
             ///
-            /// 配置Airoute
+            /// Global config Airoute
             Airoute.createMaterialApp(
               home: LaunchPage(),
               routes: <String, AirouteBuilder>{

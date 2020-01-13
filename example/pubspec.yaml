@@ -25,7 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
 
   # Route
-  airoute: ^0.1.2
+  airoute: any
 
 
   # WebView
