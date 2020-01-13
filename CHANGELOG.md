@@ -1,3 +1,12 @@
+## [0.1.7] - Route.
+
+* Fix: something!
+
+1 、Duration
+
+Error：Failed assertion: line 130 pos 12: 'duration != null && duration >= Duration.zero': is not true.
+Issues：https://github.com/pdliuw/airoute/issues/3
+
 ## [0.1.6] - Route.
 
 * Improve:  Improve health

@@ -221,7 +221,7 @@ class Airoute {
     @required String routeName,
     dynamic argument,
     RoutePageAnimation routePageAnimation,
-    Duration duration,
+    Duration duration = const Duration(milliseconds: 500),
   }) {
     return RouteManager.getInstance().pushNamedWithAnimation(
       routeName: routeName,
