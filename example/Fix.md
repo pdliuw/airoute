@@ -4,7 +4,7 @@
 
 -----
 
-|[English Document](https://github.com/pdliuw/airoute/blob/master/README-EN.md)|[中文文档](https://github.com/pdliuw/airoute)|
+|[English Document](https://github.com/pdliuw/airoute/blob/master/example/Fix_EN.md)|[中文文档](https://github.com/pdliuw/airoute/blob/master/example/Fix.md)|
 |:-|:-|
 
 ### 1、observer.navigator == null
