@@ -220,7 +220,7 @@ class Airoute {
   static pushNamedWithAnimation({
     @required String routeName,
     dynamic argument,
-    RoutePageAnimation routePageAnimation,
+    RoutePageAnimation routePageAnimation = AirouteTransition.Fade,
     Duration duration = const Duration(milliseconds: 500),
   }) {
     return RouteManager.getInstance().pushNamedWithAnimation(
@@ -257,7 +257,7 @@ class Airoute {
     @required String newRouteName,
     String untilRouteName,
     dynamic argument,
-    RoutePageAnimation routePageAnimation,
+    RoutePageAnimation routePageAnimation = AirouteTransition.Fade,
   }) {
     RouteManager.getInstance().pushNamedAndRemoveUntil(
       newRouteName: newRouteName,

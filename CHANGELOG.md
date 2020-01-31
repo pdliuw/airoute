@@ -1,3 +1,7 @@
+## [0.1.9] - Route.
+
+* Default anim: AirouteTransition.Fade!
+
 ## [0.1.8] - Route.
 
 * Fix: something!
