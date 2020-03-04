@@ -25,7 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
 
   # Route
-  airoute: ^0.1.9
+  airoute:
+    path: ../
   provider: ^4.0.1
   oktoast: ^2.3.0
 

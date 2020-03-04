@@ -137,6 +137,14 @@ class RouteManager extends NavigatorObserver {
   }
 
   ///
+  /// push
+  Future<T> push<T extends Object>({
+    @required Route<T> route,
+  }) {
+    return navigator.push(route);
+  }
+
+  ///
   /// Push with animation.
   pushNamedWithAnimation({
     @required String routeName,

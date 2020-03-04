@@ -216,6 +216,16 @@ class Airoute {
   }
 
   ///
+  /// push
+  static Future<T> push<T extends Object>({
+    @required Route<T> route,
+  }) {
+    return RouteManager.getInstance().push(
+      route: route,
+    );
+  }
+
+  ///
   /// Push with animation.
   static pushNamedWithAnimation({
     @required String routeName,
