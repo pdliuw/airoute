@@ -212,7 +212,22 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 
 ```
 
-*5、更多用法[点击，查看更多](https://github.com/pdliuw/airoute/blob/master/README_DETAIL.md)
+*5、路由跳转
+
+```
+
+          Airoute.push(
+            route: AwesomeMessageRoute(
+              awesomeMessage: AwesomeHelper.createAwesome(
+                  title: "title", message: "message"),
+              theme: null,
+              settings: RouteSettings(name: "/messageRouteName"),
+            ),
+          );
+
+```
+
+*6、更多用法[点击，查看更多](https://github.com/pdliuw/airoute/blob/master/README_DETAIL.md)
 
 ### 待办
 

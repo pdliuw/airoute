@@ -213,7 +213,25 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 
 ```
 
-*5、Jump to a new page and close the current page
+
+*5、Push route
+
+```
+
+          Airoute.push(
+            route: AwesomeMessageRoute(
+              awesomeMessage: AwesomeHelper.createAwesome(
+                  title: "title", message: "message"),
+              theme: null,
+              settings: RouteSettings(name: "/messageRouteName"),
+            ),
+          );
+
+```
+
+
+
+*6、Jump to a new page and close the current page
 
 ```
 
@@ -224,7 +242,7 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 ```
 
 
-*6、Jump to new page and close all previous pages
+*7、Jump to new page and close all previous pages
 
 ```
 
@@ -234,7 +252,7 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 
 ```
 
-*7、Jump to new page and close all previous pages except 'untilRouteName'
+*8、Jump to new page and close all previous pages except 'untilRouteName'
 
 ```
 

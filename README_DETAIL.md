@@ -217,7 +217,22 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 
 ```
 
-*5、跳转新页面，并关闭当前页面
+*5、路由跳转
+
+```
+
+          Airoute.push(
+            route: AwesomeMessageRoute(
+              awesomeMessage: AwesomeHelper.createAwesome(
+                  title: "title", message: "message"),
+              theme: null,
+              settings: RouteSettings(name: "/messageRouteName"),
+            ),
+          );
+
+```
+
+*6、跳转新页面，并关闭当前页面
 
 ```
 
@@ -228,7 +243,7 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 ```
 
 
-*6、跳转新页面，并关闭之前的所有页面
+*7、跳转新页面，并关闭之前的所有页面
 
 ```
 
@@ -238,7 +253,7 @@ class Page extends StatefulWidget with AirArgumentReceiver {
 
 ```
 
-*7、跳转新页面，并关闭除'untilRouteName'外的之前的所有页面
+*8、跳转新页面，并关闭除'untilRouteName'外的之前的所有页面
 
 ```
 
