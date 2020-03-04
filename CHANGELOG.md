@@ -1,3 +1,7 @@
+## [0.2.0] - Route.
+
+* Add: Push route!
+
 ## [0.1.9] - Route.
 
 * Default anim: AirouteTransition.Fade!
