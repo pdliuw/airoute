@@ -28,26 +28,38 @@
 
 ```
         
-        import 'package:example/page/login_page.dart';
+        import 'package:airoute/airoute.dart';
+        import 'package:example/page/launch_page.dart';
         import 'package:example/page/second_page.dart';
+        import 'package:example/page/third_page.dart';
         import 'package:flutter/cupertino.dart';
         import 'package:flutter/material.dart';
-        import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-        import 'package:airoute/airoute.dart';
         
         void main() {
-          runApp(
-            ///
-            /// 配置Airoute
-            Airoute.createMaterialApp(
-              home: LaunchPage(),
-              routes: <String, AirouteBuilder>{
-                "/LaunchPage": () => LaunchPage(),
-                "/SecondPage": () => SecondPage(),
-              },
-            ),
-          );
+          runApp(MyApp());
         }
+        
+        class MyApp extends StatefulWidget {
+          @override
+          State<StatefulWidget> createState() {
+            return AppState();
+          }
+        }
+        
+        class AppState extends State<MyApp> {
+          @override
+          Widget build(BuildContext context) {
+            return Airoute.createMaterialApp(
+              home: LaunchPage(),
+              routes: <String, WidgetBuilder>{
+                "/LaunchPage": (_) => LaunchPage(),
+                "/SecondPage": (_) => SecondPage(),
+                "/ThirdPage": (_) => ThirdPage(),
+              },
+            );
+          }
+        }
+
         
 
 ```
@@ -55,10 +67,11 @@
 ### 2、LaunchPage
 
 ```
-        
-        import 'package:flutter/material.dart';
-        import 'package:airoute/airoute.dart';
+                
         import 'dart:ui';
+        
+        import 'package:airoute/airoute.dart';
+        import 'package:flutter/material.dart';
         
         ///
         /// LaunchPage
@@ -71,12 +84,12 @@
         
           @override
           State<StatefulWidget> createState() {
-            return _LoginState();
+            return _LaunchState();
           }
         }
         
-        /// _LoginState
-        class _LoginState extends State<LaunchPage> {
+        /// _LaunchState
+        class _LaunchState extends State<LaunchPage> {
           String _content = "";
           @override
           Widget build(BuildContext context) {
@@ -85,44 +98,105 @@
             double height = size.height / window.devicePixelRatio;
         
             return Scaffold(
-              appBar: AppBar(),
-              body: Column(
-                children: <Widget>[
-                  Text("Hello world ${widget._content}"),
-                  Container(
-                    width: width,
-                    height: height / 2,
-                    padding: EdgeInsets.only(
-                      left: 20,
-                      top: 20,
-                      right: 20,
-                      bottom: 20,
-                    ),
-                    child: Center(
-                      child: TextField(
-                        enabled: true,
-                        decoration: InputDecoration(
-                          icon: Text("参数"),
-                          prefixIcon: Icon(Icons.phone_android),
+              appBar: AppBar(
+                title: Text("LaunchPage"),
+              ),
+              body: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Text("Hello world ${widget._content}"),
+                    Container(
+                      width: width,
+                      height: height / 2,
+                      padding: EdgeInsets.only(
+                        left: 20,
+                        top: 20,
+                        right: 20,
+                        bottom: 20,
+                      ),
+                      child: Center(
+                        child: TextField(
+                          enabled: true,
+                          decoration: InputDecoration(
+                            icon: Text("参数"),
+                            prefixIcon: Icon(Icons.phone_android),
+                          ),
+                          onChanged: (String content) {
+                            _content = content;
+                          },
                         ),
-                        onChanged: (String content) {
-                          _content = content;
-                        },
                       ),
                     ),
-                  ),
-                  MaterialButton(
-                    onPressed: () {
-                      Airoute.pushNamed(
-                        routeName: "/SecondPage",
-                        argument: "$_content \n 遇见你，我很开心😄😄😄",
-                      );
-                    },
-                    color: Theme.of(context).primaryColor,
-                    textColor: Colors.white,
-                    child: Text("跳转下一页"),
-                  ),
-                ],
+                    MaterialButton(
+                      onPressed: () {
+        //              Airoute.pushNamedWithAnimation(
+        //                routeName: "/SecondPage",
+        //                routePageAnimation: (
+        //                  BuildContext context,
+        //                  Animation<double> animation,
+        //                  Animation<double> secondaryAnimation,
+        //                  Widget page,
+        //                ) {
+        //                  return SlideTransition(
+        //                    position: Tween<Offset>(
+        //                      begin: const Offset(1.0, 0.0),
+        //                      end: const Offset(0.0, 0.0),
+        //                    ).animate(animation),
+        //                    child: page,
+        //                  );
+        //                },
+        //              );
+        //                Airoute.pushNamed(
+        //                  routeName: "/SecondPage",
+        //                  argument: "$_content \n 遇见你，我很开心😄😄😄",
+        //                );
+        //                Airoute.pushNamedWithAnimation(
+        //                  routeName: "/SecondPage",
+        //                  argument: "$_content \n 遇见你，我很开心😄😄😄",
+        //                  duration: Duration(milliseconds: 800),
+        //                  routePageAnimation: (
+        //                    BuildContext context,
+        //                    Animation<double> animation,
+        //                    Animation<double> secondaryAnimation,
+        //                    Widget page,
+        //                  ) {
+        //                    return FadeTransition(
+        //                      opacity: CurvedAnimation(
+        //                          parent: animation, curve: Curves.easeOut),
+        //                      child: SlideTransition(
+        //                        position: Tween<Offset>(
+        //                          begin: const Offset(1.0, 0.0),
+        //                          end: const Offset(0.0, 0.0),
+        //                        ).animate(animation),
+        //                        child: page,
+        //                      ),
+        //                    );
+        //                  },
+        //                );
+        //                Airoute.pushNamedWithAnimation(
+        //                  routeName: "/SecondPage",
+        //                  argument: "$_content \n 遇见你，我很开心😄😄😄",
+        //                  routePageAnimation: AirouteTransition.Slide,
+        //                  duration: Duration(milliseconds: 500),
+        //                );
+        //                Airoute.pushNamedWithAnimation(
+        //                  routeName: "/routeName",
+        //                  argument: "$_content \n 遇见你，我很开心😄😄😄",
+        ////                  duration: Duration(milliseconds: 500),
+        //                  routePageAnimation: _slide,
+        //                );
+                        Airoute.pushNamedWithAnimation(
+                          routeName: "/SecondPage",
+                          argument: "$_content \n happy to see you",
+                          routePageAnimation: AirouteTransition.Slide,
+                        );
+                      },
+                      color: Theme.of(context).primaryColor,
+                      textColor: Colors.white,
+                      child: Text("跳转下一页"),
+                    ),
+                  ],
+                ),
               ),
             );
           }
@@ -134,7 +208,7 @@
 ### 3、SecondPage
 
 ```
-
+    
         import 'package:flutter/material.dart';
         import 'package:airoute/airoute.dart';
         
@@ -163,14 +237,94 @@
               backgroundColor: Colors.blue,
               appBar: AppBar(
                 elevation: 0,
+                title: Text("SecondPage"),
               ),
               body: Center(
-                child: Text(
-                  "以下为上页传递的数据\n\n\n${widget._content}",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      "以下为上页传递的数据\n\n\n${widget._content}",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    RaisedButton.icon(
+                      onPressed: () {
+                        Airoute.pushNamed(routeName: "/ThirdPage", argument: "Air");
+                      },
+                      icon: Icon(Icons.arrow_right),
+                      label: Text("Next"),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+        }
+
+
+```
+
+### 4、ThirdPage
+
+```
+
+        import 'package:flutter/material.dart';
+        import 'package:airoute/airoute.dart';
+        
+        ///
+        /// ThirdPage
+        class ThirdPage extends StatefulWidget with AirArgumentReceiver {
+          dynamic _content;
+          @override
+          State<StatefulWidget> createState() {
+            return _ThirdPageState();
+          }
+        
+          @override
+          void receive(AirArgument argument) {
+            _content = argument.argument;
+            print("收到${argument.argument}参数了,我很开心😄😄😄");
+          }
+        }
+        
+        ///
+        /// _SecondPageState
+        class _ThirdPageState extends State<ThirdPage> {
+          @override
+          Widget build(BuildContext context) {
+            return Scaffold(
+              backgroundColor: Colors.blue,
+              appBar: AppBar(
+                elevation: 0,
+                title: Text("ThirdPage"),
+              ),
+              body: Center(
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      "以下为上页传递的数据\n\n\n${widget._content}",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    RaisedButton.icon(
+                      onPressed: () {
+                        Airoute.popUntil(untilRouteName: "/SecondPage");
+                      },
+                      icon: Icon(Icons.arrow_back),
+                      label: Text("Back"),
+                    ),
+                    RaisedButton.icon(
+                      onPressed: () {
+                        Airoute.pushNamed(routeName: "/ThirdPage", argument: "Repeat");
+                      },
+                      icon: Icon(Icons.arrow_right),
+                      label: Text("Next"),
+                    ),
+                  ],
                 ),
               ),
             );

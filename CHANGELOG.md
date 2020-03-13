@@ -1,3 +1,7 @@
+## [0.2.2] - Route.
+
+* Update: example
+
 ## [0.2.1] - Route.
 
 * Fix: Occasional 'observer.navigator == null': is not true.!

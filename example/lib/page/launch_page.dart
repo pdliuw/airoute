@@ -1,7 +1,7 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:airoute/airoute.dart';
 import 'dart:ui';
+
+import 'package:airoute/airoute.dart';
+import 'package:flutter/material.dart';
 
 ///
 /// LaunchPage
@@ -14,12 +14,12 @@ class LaunchPage extends StatefulWidget with AirArgumentReceiver {
 
   @override
   State<StatefulWidget> createState() {
-    return _LoginState();
+    return _LaunchState();
   }
 }
 
-/// _LoginState
-class _LoginState extends State<LaunchPage> {
+/// _LaunchState
+class _LaunchState extends State<LaunchPage> {
   String _content = "";
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class _LoginState extends State<LaunchPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("LoginPage"),
+        title: Text("LaunchPage"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -118,6 +118,7 @@ class _LoginState extends State<LaunchPage> {
                 Airoute.pushNamedWithAnimation(
                   routeName: "/SecondPage",
                   argument: "$_content \n happy to see you",
+                  routePageAnimation: AirouteTransition.Slide,
                 );
               },
               color: Theme.of(context).primaryColor,

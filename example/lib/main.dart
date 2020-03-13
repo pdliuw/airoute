@@ -1,5 +1,5 @@
 import 'package:airoute/airoute.dart';
-import 'package:example/page/login_page.dart';
+import 'package:example/page/launch_page.dart';
 import 'package:example/page/second_page.dart';
 import 'package:example/page/third_page.dart';
 import 'package:flutter/cupertino.dart';
