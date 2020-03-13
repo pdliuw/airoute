@@ -1,6 +1,7 @@
 import 'package:airoute/airoute.dart';
 import 'package:example/page/login_page.dart';
 import 'package:example/page/second_page.dart';
+import 'package:example/page/third_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +21,10 @@ class AppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Airoute.createMaterialApp(
       home: LaunchPage(),
-      routes: <String, AirouteBuilder>{
-        "/LaunchPage": () => LaunchPage(),
-        "/SecondPage": () => SecondPage(),
+      routes: <String, WidgetBuilder>{
+        "/LaunchPage": (_) => LaunchPage(),
+        "/SecondPage": (_) => SecondPage(),
+        "/ThirdPage": (_) => ThirdPage(),
       },
     );
   }

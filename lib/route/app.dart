@@ -11,7 +11,7 @@ class AirouteApp {
     Key key,
     GlobalKey<NavigatorState> navigatorKey,
     Widget home,
-    Map<String, AirouteBuilder> routes = const <String, AirouteBuilder>{},
+    Map<String, WidgetBuilder> routes = const <String, WidgetBuilder>{},
     String initialRoute,
     RouteFactory onGenerateRoute,
     RouteFactory onUnknownRoute,
@@ -37,18 +37,13 @@ class AirouteApp {
     Map<LogicalKeySet, Intent> shortcuts,
     Map<LocalKey, ActionFactory> actions,
   }) {
-    RouteManager.initializeRoutes(
-      routes: routes,
-    );
-    List<NavigatorObserver> observers = [];
-    observers.addAll(navigatorObservers);
-    observers.add(RouteManager.getInstance());
-
+    NavigatorManager.initializeRoutes(routes: routes);
     return MaterialApp(
       key: key,
       navigatorKey: NavigatorManager.GLOBAL_KEY,
       home: home,
       initialRoute: initialRoute,
+      routes: routes,
       onGenerateRoute: RouteManager.initializeGenerateRoute,
       onUnknownRoute: onUnknownRoute,
       navigatorObservers: navigatorObservers,
@@ -79,7 +74,7 @@ class AirouteApp {
     Key key,
     GlobalKey<NavigatorState> navigatorKey,
     Widget home,
-    Map<String, AirouteBuilder> routes = const <String, AirouteBuilder>{},
+    Map<String, WidgetBuilder> routes = const <String, WidgetBuilder>{},
     String initialRoute,
     RouteFactory onGenerateRoute,
     RouteFactory onUnknownRoute,
@@ -105,24 +100,17 @@ class AirouteApp {
     Map<LogicalKeySet, Intent> shortcuts,
     Map<LocalKey, ActionFactory> actions,
   }) {
-    RouteManager.initializeRoutes(
-      routes: routes,
-    );
-    List<NavigatorObserver> observers = [];
-    observers.addAll(navigatorObservers);
-    observers.add(RouteManager.getInstance());
-
+    NavigatorManager.initializeRoutes(routes: routes);
     return CupertinoApp(
       key: key,
-      navigatorKey: navigatorKey,
+      navigatorKey: NavigatorManager.GLOBAL_KEY,
       home: home,
       initialRoute: initialRoute,
+      routes: routes,
       onGenerateRoute: RouteManager.initializeGenerateRoute,
       onUnknownRoute: onUnknownRoute,
-      navigatorObservers: observers,
-      builder: (BuildContext context, Widget child) {
-        return child;
-      },
+      navigatorObservers: navigatorObservers,
+      builder: builder,
       title: title,
       onGenerateTitle: onGenerateTitle,
       color: color,
@@ -146,7 +134,7 @@ class AirouteApp {
     Key key,
     GlobalKey<NavigatorState> navigatorKey,
     Widget home,
-    Map<String, AirouteBuilder> routes = const <String, AirouteBuilder>{},
+    Map<String, WidgetBuilder> routes = const <String, WidgetBuilder>{},
     String initialRoute,
     RouteFactory onGenerateRoute,
     RouteFactory onUnknownRoute,
@@ -172,24 +160,17 @@ class AirouteApp {
     Map<LogicalKeySet, Intent> shortcuts,
     Map<LocalKey, ActionFactory> actions,
   }) {
-    RouteManager.initializeRoutes(
-      routes: routes,
-    );
-    List<NavigatorObserver> observers = [];
-    observers.addAll(navigatorObservers);
-    observers.add(RouteManager.getInstance());
-
+    NavigatorManager.initializeRoutes(routes: routes);
     return WidgetsApp(
       key: key,
-      navigatorKey: navigatorKey,
+      navigatorKey: NavigatorManager.GLOBAL_KEY,
       home: home,
       initialRoute: initialRoute,
+      routes: routes,
       onGenerateRoute: RouteManager.initializeGenerateRoute,
       onUnknownRoute: onUnknownRoute,
-      navigatorObservers: observers,
-      builder: (BuildContext context, Widget child) {
-        return child;
-      },
+      navigatorObservers: navigatorObservers,
+      builder: builder,
       title: title,
       onGenerateTitle: onGenerateTitle,
       color: color,

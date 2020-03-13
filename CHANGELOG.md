@@ -1,3 +1,7 @@
+## [0.2.1] - Route.
+
+* Fix: Occasional 'observer.navigator == null': is not true.!
+
 ## [0.2.0] - Route.
 
 * Add: Push route!

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:airoute/airoute.dart';
 
 ///
-/// SecondPage
-class SecondPage extends StatefulWidget with AirArgumentReceiver {
+/// ThirdPage
+class ThirdPage extends StatefulWidget with AirArgumentReceiver {
   dynamic _content;
   @override
   State<StatefulWidget> createState() {
-    return _SecondPageState();
+    return _ThirdPageState();
   }
 
   @override
@@ -19,14 +19,14 @@ class SecondPage extends StatefulWidget with AirArgumentReceiver {
 
 ///
 /// _SecondPageState
-class _SecondPageState extends State<SecondPage> {
+class _ThirdPageState extends State<ThirdPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue,
       appBar: AppBar(
         elevation: 0,
-        title: Text("SecondPage"),
+        title: Text("ThirdPage"),
       ),
       body: Center(
         child: Column(
@@ -40,7 +40,14 @@ class _SecondPageState extends State<SecondPage> {
             ),
             RaisedButton.icon(
               onPressed: () {
-                Airoute.pushNamed(routeName: "/ThirdPage", argument: "Air");
+                Airoute.popUntil(untilRouteName: "/SecondPage");
+              },
+              icon: Icon(Icons.arrow_back),
+              label: Text("Back"),
+            ),
+            RaisedButton.icon(
+              onPressed: () {
+                Airoute.pushNamed(routeName: "/ThirdPage", argument: "Repeat");
               },
               icon: Icon(Icons.arrow_right),
               label: Text("Next"),

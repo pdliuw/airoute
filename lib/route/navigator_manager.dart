@@ -5,7 +5,7 @@ part of airoute;
 class NavigatorManager {
   ///
   /// Route config map.
-  static Map<String, AirouteBuilder> _route = {};
+  static Map<String, WidgetBuilder> _route = {};
 
   ///
   /// NavigatorManager.
@@ -13,7 +13,8 @@ class NavigatorManager {
 
   ///
   /// Navigator.
-  static GlobalKey<NavigatorState> GLOBAL_KEY = GlobalKey();
+  // ignore: non_constant_identifier_names
+  static final GlobalKey<NavigatorState> GLOBAL_KEY = GlobalKey();
 
   ///
   /// NavigatorManager.
@@ -30,8 +31,8 @@ class NavigatorManager {
 
   ///
   /// Initialize routes[_route].
-  static Map<String, AirouteBuilder> initializeRoutes({
-    @required Map<String, AirouteBuilder> routes,
+  static Map<String, WidgetBuilder> initializeRoutes({
+    @required Map<String, WidgetBuilder> routes,
   }) {
     _route = routes ?? {};
     return null;
@@ -44,9 +45,9 @@ class NavigatorManager {
     String routeName = routeSettings.name;
     dynamic arguments = routeSettings.arguments;
     //Builder.
-    AirouteBuilder airBuilder = _route[routeName];
+    WidgetBuilder widgetBuilder = _route[routeName];
 
-    Widget widget = airBuilder();
+    Widget widget = widgetBuilder(navigator.context);
 
     if (widget is AirArgumentReceiver) {
       AirArgumentReceiver argumentReceiver = widget as AirArgumentReceiver;
@@ -93,6 +94,30 @@ class NavigatorManager {
     String routeName,
     dynamic argument,
   }) {
+    RouteSettings routeSettings = RouteSettings(
+        name: routeName, isInitialRoute: false, arguments: argument);
+
+    WidgetBuilder widgetBuilder = _route[routeSettings.name];
+    Widget widget = widgetBuilder(navigator.context);
+
+    if (widget is AirArgumentReceiver) {
+      AirArgumentReceiver argumentReceiver = widget as AirArgumentReceiver;
+      argumentReceiver.receive(
+        AirArgument(
+          routeName: routeSettings.name,
+          argument: routeSettings.arguments,
+          isInitialRoute: routeSettings.isInitialRoute,
+        ),
+      );
+      return navigator.push(
+        CupertinoPageRoute(
+          builder: (context) {
+            return widget;
+          },
+          settings: routeSettings,
+        ),
+      );
+    }
     return navigator.pushNamed(
       routeName,
       arguments: argument,
@@ -125,8 +150,9 @@ class NavigatorManager {
         pageBuilder: (BuildContext context, Animation<double> animation,
             Animation<double> secondaryAnimation) {
           //WidgetBuilder
-          AirouteBuilder airouteBuilder = _route[routeName];
-          Widget widget = airouteBuilder();
+          WidgetBuilder widgetBuilder = _route[routeName];
+          Widget widget =
+              widgetBuilder == null ? null : widgetBuilder(navigator.context);
           if (widget is AirArgumentReceiver) {
             AirArgumentReceiver argumentReceiver =
                 widget as AirArgumentReceiver;
@@ -166,11 +192,7 @@ class NavigatorManager {
   }) {
     bool isPopAll = untilRouteName == null ? true : false;
     if (isPopAll) {
-      navigator.popUntil(
-        (Route<dynamic> route) {
-          return false;
-        },
-      );
+      pop();
     } else {
       navigator.popUntil(ModalRoute.withName('$untilRouteName'));
     }
@@ -207,7 +229,7 @@ class NavigatorManager {
 
   ///
   /// navigatorKey.
-  NavigatorState get navigator {
+  static NavigatorState get navigator {
     return GLOBAL_KEY.currentState;
   }
 }
