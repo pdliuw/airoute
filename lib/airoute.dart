@@ -15,3 +15,4 @@ part 'route/argument.dart';
 part 'route/app.dart';
 part 'route/transition.dart';
 part 'route/airoute.dart';
+part 'route/navigator_manager.dart';

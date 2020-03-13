@@ -46,15 +46,13 @@ class AirouteApp {
 
     return MaterialApp(
       key: key,
-      navigatorKey: navigatorKey,
+      navigatorKey: NavigatorManager.GLOBAL_KEY,
       home: home,
       initialRoute: initialRoute,
       onGenerateRoute: RouteManager.initializeGenerateRoute,
       onUnknownRoute: onUnknownRoute,
-      navigatorObservers: observers,
-      builder: (BuildContext context, Widget child) {
-        return child;
-      },
+      navigatorObservers: navigatorObservers,
+      builder: builder,
       title: title,
       onGenerateTitle: onGenerateTitle,
       color: color,

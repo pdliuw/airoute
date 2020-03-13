@@ -1,26 +1,31 @@
+import 'package:airoute/airoute.dart';
 import 'package:example/page/login_page.dart';
 import 'package:example/page/second_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:airoute/airoute.dart';
-import 'package:provider/provider.dart';
-import 'package:oktoast/oktoast.dart';
-
 
 void main() {
-  runApp(
-    ///
-    /// 配置Airoute
-    Airoute.createMaterialApp(
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return AppState();
+  }
+}
+
+class AppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return Airoute.createMaterialApp(
       home: LaunchPage(),
       routes: <String, AirouteBuilder>{
         "/LaunchPage": () => LaunchPage(),
         "/SecondPage": () => SecondPage(),
       },
-    ),
-  );
+    );
+  }
 }
 
 /////

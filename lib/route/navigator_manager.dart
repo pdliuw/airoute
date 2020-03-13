@@ -1,44 +1,29 @@
 part of airoute;
 
 ///
-/// Animation
-typedef RoutePageAnimation = Widget Function(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget page);
-
-///
-/// Route manager
-class RouteManager extends NavigatorObserver {
+/// NavigatorManager
+class NavigatorManager {
   ///
   /// Route config map.
   static Map<String, AirouteBuilder> _route = {};
 
   ///
-  /// RouteManager.
-  static RouteManager _singleInstance;
-
-  ///
-  /// StreamController.
-  // ignore: close_sinks
-  static StreamController _streamController;
+  /// NavigatorManager.
+  static NavigatorManager _singleInstance;
 
   ///
   /// Navigator.
-  NavigatorState navigator;
+  static GlobalKey<NavigatorState> GLOBAL_KEY = GlobalKey();
 
   ///
-  /// RouteManaqer.
-  RouteManager._();
+  /// NavigatorManager.
+  NavigatorManager._();
 
   ///
   /// Instance.
-  static RouteManager getInstance() {
+  static NavigatorManager getInstance() {
     if (_singleInstance == null) {
-      _singleInstance = RouteManager._();
-
-      _streamController = StreamController.broadcast();
+      _singleInstance = NavigatorManager._();
     }
     return _singleInstance;
   }
@@ -60,11 +45,7 @@ class RouteManager extends NavigatorObserver {
     dynamic arguments = routeSettings.arguments;
     //Builder.
     AirouteBuilder airBuilder = _route[routeName];
-//    if (airBuilder == null) {
-//      return CupertinoPageRoute(builder: (context) {
-//        return Text("Unknown");
-//      });
-//    }
+
     Widget widget = airBuilder();
 
     if (widget is AirArgumentReceiver) {
@@ -87,34 +68,11 @@ class RouteManager extends NavigatorObserver {
   }
 
   ///
-  /// Routes.
-  static List<Route> _mRoutes;
-
-  ///
-  /// Route.
-  List<Route> get routes => _mRoutes;
-
-  ///
-  /// Current route.
-  Route get currentRoute => _mRoutes[_mRoutes.length - 1];
-
-  StreamController get streamController => _streamController;
-
-  ///
   /// Context.
   BuildContext context({
     String routeName,
   }) {
-    if (routeName != null) {
-      return PageRouteBuilder(
-        settings: RouteSettings(name: routeName),
-        pageBuilder: (BuildContext context, Animation animation,
-            Animation secondaryAnimation) {
-          return _route[routeName]();
-        },
-      )?.navigator?.context;
-    }
-    return currentRoute?.navigator?.context;
+    return navigator.context;
   }
 
   ///
@@ -248,59 +206,8 @@ class RouteManager extends NavigatorObserver {
   }
 
   ///
-  /// DisPush.
-  @override
-  void didPush(Route route, Route previousRoute) {
-    super.didPush(route, previousRoute);
-    if (_mRoutes == null) {
-      _mRoutes = new List<Route>();
-    }
-    // filter route type.
-    if (route is CupertinoPageRoute || route is MaterialPageRoute) {
-      _mRoutes.add(route);
-      routeObserver();
-    }
-  }
-
-  ///
-  /// DisReplace.
-  @override
-  void didReplace({Route newRoute, Route oldRoute}) {
-    super.didReplace();
-    if (newRoute is CupertinoPageRoute || newRoute is MaterialPageRoute) {
-      _mRoutes.remove(oldRoute);
-      _mRoutes.add(newRoute);
-      routeObserver();
-    }
-  }
-
-  ///
-  /// DidPop.
-  @override
-  void didPop(Route route, Route previousRoute) {
-    super.didPop(route, previousRoute);
-    if (route is CupertinoPageRoute || route is MaterialPageRoute) {
-      _mRoutes.remove(route);
-      routeObserver();
-    }
-  }
-
-  ///
-  /// DidRemove.
-  @override
-  void didRemove(Route removedRoute, Route oldRoute) {
-    super.didRemove(removedRoute, oldRoute);
-    if (removedRoute is CupertinoPageRoute ||
-        removedRoute is MaterialPageRoute) {
-      _mRoutes.remove(removedRoute);
-      routeObserver();
-    }
-  }
-
-  ///
-  /// RouteObserver.
-  void routeObserver() {
-    navigator = _mRoutes[_mRoutes.length - 1].navigator;
-    streamController.sink.add(_mRoutes);
+  /// navigatorKey.
+  NavigatorState get navigator {
+    return GLOBAL_KEY.currentState;
   }
 }

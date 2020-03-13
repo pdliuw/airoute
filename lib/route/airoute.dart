@@ -197,7 +197,7 @@ class Airoute {
     String routeName,
     dynamic argument,
   }) {
-    return RouteManager.getInstance().pushReplacementNamed(
+    return NavigatorManager.getInstance().pushReplacementNamed(
       routeName: routeName,
       argument: argument,
     );
@@ -209,7 +209,7 @@ class Airoute {
     String routeName,
     dynamic argument,
   }) {
-    return RouteManager.getInstance().pushNamed(
+    return NavigatorManager.getInstance().pushNamed(
       routeName: routeName,
       argument: argument,
     );
@@ -220,7 +220,7 @@ class Airoute {
   static Future<T> push<T extends Object>({
     @required Route<T> route,
   }) {
-    return RouteManager.getInstance().push(
+    return NavigatorManager.getInstance().push(
       route: route,
     );
   }
@@ -233,7 +233,7 @@ class Airoute {
     RoutePageAnimation routePageAnimation = AirouteTransition.Fade,
     Duration duration = const Duration(milliseconds: 500),
   }) {
-    return RouteManager.getInstance().pushNamedWithAnimation(
+    return NavigatorManager.getInstance().pushNamedWithAnimation(
       routeName: routeName,
       argument: argument,
       routePageAnimation: routePageAnimation,
@@ -246,7 +246,7 @@ class Airoute {
   static pop({
     dynamic result,
   }) {
-    RouteManager.getInstance().pop(
+    NavigatorManager.getInstance().pop(
       result: result,
     );
   }
@@ -256,7 +256,7 @@ class Airoute {
   static popUntil({
     String untilRouteName,
   }) {
-    RouteManager.getInstance().popUntil(
+    NavigatorManager.getInstance().popUntil(
       untilRouteName: untilRouteName,
     );
   }
@@ -269,7 +269,7 @@ class Airoute {
     dynamic argument,
     RoutePageAnimation routePageAnimation = AirouteTransition.Fade,
   }) {
-    RouteManager.getInstance().pushNamedAndRemoveUntil(
+    NavigatorManager.getInstance().pushNamedAndRemoveUntil(
       newRouteName: newRouteName,
       untilRouteName: untilRouteName,
       argument: argument,
