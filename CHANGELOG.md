@@ -1,3 +1,7 @@
+## [0.2.3] - Route.
+
+* Fix: 'isInitialRoute' isn't defined for the class 'RouteSettings' on flutter-v1.15.23
+
 ## [0.2.2] - Route.
 
 * Update: example
