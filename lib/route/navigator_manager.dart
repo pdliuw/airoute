@@ -41,7 +41,7 @@ class NavigatorManager {
   ///
   /// Initialize generate route.
   static Route<dynamic> initializeGenerateRoute(RouteSettings routeSettings) {
-    bool isInitialRoute = routeSettings.isInitialRoute;
+    bool isInitialRoute = false;
     String routeName = routeSettings.name;
     dynamic arguments = routeSettings.arguments;
     //Builder.
@@ -94,8 +94,8 @@ class NavigatorManager {
     String routeName,
     dynamic argument,
   }) {
-    RouteSettings routeSettings = RouteSettings(
-        name: routeName, isInitialRoute: false, arguments: argument);
+    RouteSettings routeSettings =
+        RouteSettings(name: routeName, arguments: argument);
 
     WidgetBuilder widgetBuilder = _route[routeSettings.name];
     Widget widget = widgetBuilder(navigator.context);
@@ -106,7 +106,7 @@ class NavigatorManager {
         AirArgument(
           routeName: routeSettings.name,
           argument: routeSettings.arguments,
-          isInitialRoute: routeSettings.isInitialRoute,
+          isInitialRoute: false,
         ),
       );
       return navigator.push(

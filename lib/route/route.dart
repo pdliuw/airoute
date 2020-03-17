@@ -55,7 +55,6 @@ class RouteManager extends NavigatorObserver {
   ///
   /// Initialize generate route.
   static Route<dynamic> initializeGenerateRoute(RouteSettings routeSettings) {
-    bool isInitialRoute = routeSettings.isInitialRoute;
     String routeName = routeSettings.name;
     dynamic arguments = routeSettings.arguments;
     //Builder.
@@ -73,7 +72,7 @@ class RouteManager extends NavigatorObserver {
         AirArgument(
           routeName: routeName,
           argument: arguments,
-          isInitialRoute: isInitialRoute,
+          isInitialRoute: false,
         ),
       );
     }
