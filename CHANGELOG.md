@@ -1,3 +1,7 @@
+## [0.2.3-pre-1.0] - preview
+
+* adapter: flutter version = 1.18.0-7.0,dart version = 2.9.0
+
 ## [0.2.3] - Route.
 
 * Fix: 'isInitialRoute' isn't defined for the class 'RouteSettings' on flutter-v1.15.23
