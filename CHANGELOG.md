@@ -1,3 +1,9 @@
+## [0.3.2] - airoute
+
+* adapter: 
+    flutter version = 1.17
+    dart version = 2.8
+
 ## [0.2.3-pre.1.0] - preview
 
 * adapter: flutter version = 1.18.0-7.0,dart version = 2.9.0
