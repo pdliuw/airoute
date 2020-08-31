@@ -35,7 +35,7 @@ class AirouteApp {
     bool showSemanticsDebugger = false,
     bool debugShowCheckedModeBanner = true,
     Map<LogicalKeySet, Intent> shortcuts,
-    Map<LocalKey, ActionFactory> actions,
+    Map<Type, Action<Intent>> actions,
   }) {
     NavigatorManager.initializeRoutes(routes: routes);
     return MaterialApp(
@@ -99,7 +99,7 @@ class AirouteApp {
     bool showSemanticsDebugger = false,
     bool debugShowCheckedModeBanner = true,
     Map<LogicalKeySet, Intent> shortcuts,
-    Map<LocalKey, ActionFactory> actions,
+    Map<Type, Action<Intent>> actions,
   }) {
     NavigatorManager.initializeRoutes(routes: routes);
     return CupertinoApp(
@@ -159,7 +159,7 @@ class AirouteApp {
     bool showSemanticsDebugger = false,
     bool debugShowCheckedModeBanner = true,
     Map<LogicalKeySet, Intent> shortcuts,
-    Map<LocalKey, ActionFactory> actions,
+    Map<Type, Action<Intent>> actions,
   }) {
     NavigatorManager.initializeRoutes(routes: routes);
     return WidgetsApp(

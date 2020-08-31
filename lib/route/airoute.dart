@@ -33,7 +33,7 @@ class Airoute {
     bool showSemanticsDebugger = false,
     bool debugShowCheckedModeBanner = true,
     Map<LogicalKeySet, Intent> shortcuts,
-    Map<LocalKey, ActionFactory> actions,
+    Map<Type, Action<Intent>> actions,
   }) {
     return AirouteApp.createMaterialApp(
       key: key,
@@ -97,7 +97,7 @@ class Airoute {
     bool showSemanticsDebugger = false,
     bool debugShowCheckedModeBanner = true,
     Map<LogicalKeySet, Intent> shortcuts,
-    Map<LocalKey, ActionFactory> actions,
+    Map<Type, Action<Intent>> actions,
   }) {
     return AirouteApp.createCupertinoApp(
       key: key,
@@ -159,7 +159,7 @@ class Airoute {
     bool showSemanticsDebugger = false,
     bool debugShowCheckedModeBanner = true,
     Map<LogicalKeySet, Intent> shortcuts,
-    Map<LocalKey, ActionFactory> actions,
+    Map<Type, Action<Intent>> actions,
   }) {
     return AirouteApp.createWidgetsApp(
       key: key,
