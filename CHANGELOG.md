@@ -1,3 +1,7 @@
+## [0.3.3] - airoute
+
+*   adapter: flutter version = 1.20
+
 ## [0.3.2] - airoute
 
 * adapter: 
