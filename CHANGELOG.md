@@ -1,3 +1,7 @@
+## [1.0.0] - airoute
+
+* adapter: flutter version = 1.22
+
 ## [0.3.5] - airoute
 
 *   fix something
