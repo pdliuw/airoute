@@ -1,3 +1,7 @@
+## [2.2.0]
+
+* upgrade: flutter: ">=1.20.0"
+
 ## [2.0.0]
 
 * Migrate to null safety.
