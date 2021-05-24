@@ -9,7 +9,7 @@ class NavigatorManager {
 
   ///
   /// NavigatorManager.
-  static NavigatorManager _singleInstance;
+  static NavigatorManager? _singleInstance;
 
   ///
   /// Navigator.
@@ -22,7 +22,7 @@ class NavigatorManager {
 
   ///
   /// Instance.
-  static NavigatorManager getInstance() {
+  static NavigatorManager? getInstance() {
     if (_singleInstance == null) {
       _singleInstance = NavigatorManager._();
     }
@@ -32,22 +32,22 @@ class NavigatorManager {
   ///
   /// Initialize routes[_route].
   static Map<String, WidgetBuilder> initializeRoutes({
-    @required Map<String, WidgetBuilder> routes,
+    required Map<String, WidgetBuilder> routes,
   }) {
-    _route = routes ?? {};
-    return null;
+    _route = routes;
+    return _route;
   }
 
   ///
   /// Initialize generate route.
   static Route<dynamic> initializeGenerateRoute(RouteSettings routeSettings) {
     bool isInitialRoute = false;
-    String routeName = routeSettings.name;
+    String routeName = routeSettings.name!;
     dynamic arguments = routeSettings.arguments;
     //Builder.
-    WidgetBuilder widgetBuilder = _route[routeName];
+    WidgetBuilder widgetBuilder = _route[routeName]!;
 
-    Widget widget = widgetBuilder(navigator.context);
+    Widget widget = widgetBuilder(navigator!.context);
 
     if (widget is AirArgumentReceiver) {
       AirArgumentReceiver argumentReceiver = widget as AirArgumentReceiver;
@@ -71,18 +71,18 @@ class NavigatorManager {
   ///
   /// Context.
   BuildContext context({
-    String routeName,
+    String? routeName,
   }) {
-    return navigator.context;
+    return navigator!.context;
   }
 
   ///
   /// Replace.
   pushReplacementNamed({
-    String routeName,
+    required String routeName,
     dynamic argument,
   }) {
-    return navigator.pushReplacementNamed(
+    return navigator?.pushReplacementNamed(
       routeName,
       arguments: argument,
     );
@@ -91,25 +91,25 @@ class NavigatorManager {
   ///
   /// Push.
   pushNamed({
-    String routeName,
+    required String routeName,
     dynamic argument,
   }) {
     RouteSettings routeSettings =
         RouteSettings(name: routeName, arguments: argument);
 
-    WidgetBuilder widgetBuilder = _route[routeSettings.name];
-    Widget widget = widgetBuilder(navigator.context);
+    WidgetBuilder widgetBuilder = _route[routeSettings.name]!;
+    Widget widget = widgetBuilder(navigator!.context);
 
     if (widget is AirArgumentReceiver) {
       AirArgumentReceiver argumentReceiver = widget as AirArgumentReceiver;
       argumentReceiver.receive(
         AirArgument(
-          routeName: routeSettings.name,
+          routeName: routeSettings.name!,
           argument: routeSettings.arguments,
           isInitialRoute: false,
         ),
       );
-      return navigator.push(
+      return navigator?.push(
         CupertinoPageRoute(
           builder: (context) {
             return widget;
@@ -118,7 +118,7 @@ class NavigatorManager {
         ),
       );
     }
-    return navigator.pushNamed(
+    return navigator?.pushNamed(
       routeName,
       arguments: argument,
     );
@@ -126,21 +126,21 @@ class NavigatorManager {
 
   ///
   /// push
-  Future<T> push<T extends Object>({
-    @required Route<T> route,
+  Future<T?>? push<T extends Object>({
+    required Route<T> route,
   }) {
-    return navigator.push(route);
+    return navigator?.push(route);
   }
 
   ///
   /// Push with animation.
   pushNamedWithAnimation({
-    @required String routeName,
+    required String routeName,
     dynamic argument,
     RoutePageAnimation routePageAnimation = AirouteTransition.Slide,
     Duration duration = const Duration(milliseconds: 500),
   }) {
-    return navigator.push(
+    return navigator?.push(
       PageRouteBuilder(
         transitionDuration: duration,
         settings: RouteSettings(
@@ -150,9 +150,8 @@ class NavigatorManager {
         pageBuilder: (BuildContext context, Animation<double> animation,
             Animation<double> secondaryAnimation) {
           //WidgetBuilder
-          WidgetBuilder widgetBuilder = _route[routeName];
-          Widget widget =
-              widgetBuilder == null ? null : widgetBuilder(navigator.context);
+          WidgetBuilder widgetBuilder = _route[routeName]!;
+          Widget? widget = widgetBuilder(navigator!.context);
           if (widget is AirArgumentReceiver) {
             AirArgumentReceiver argumentReceiver =
                 widget as AirArgumentReceiver;
@@ -180,29 +179,29 @@ class NavigatorManager {
   pop({
     dynamic result,
   }) {
-    if (navigator.canPop()) {
-      navigator.pop(result);
+    if (navigator?.canPop() ?? false) {
+      navigator?.pop(result);
     }
   }
 
   ///
   /// PopUntil[untilRouteName].
   popUntil({
-    String untilRouteName,
+    required String untilRouteName,
   }) {
     bool isPopAll = untilRouteName == null ? true : false;
     if (isPopAll) {
       pop();
     } else {
-      navigator.popUntil(ModalRoute.withName('$untilRouteName'));
+      navigator?.popUntil(ModalRoute.withName('$untilRouteName'));
     }
   }
 
   ///
   /// Push[newRouteName]and remove until [untilRouteName].
   pushNamedAndRemoveUntil({
-    @required String newRouteName,
-    String untilRouteName,
+    required String newRouteName,
+    required String untilRouteName,
     dynamic argument,
     RoutePageAnimation routePageAnimation = AirouteTransition.Slide,
   }) {
@@ -210,7 +209,7 @@ class NavigatorManager {
 
     if (isRemoveAll) {
       //remove all.
-      return navigator.pushNamedAndRemoveUntil(
+      return navigator?.pushNamedAndRemoveUntil(
         newRouteName,
         (Route<dynamic> route) {
           return false;
@@ -219,7 +218,7 @@ class NavigatorManager {
       );
     } else {
       //not remove all.
-      return navigator.pushNamedAndRemoveUntil(
+      return navigator?.pushNamedAndRemoveUntil(
         newRouteName,
         ModalRoute.withName('$untilRouteName'),
         arguments: argument,
@@ -229,7 +228,7 @@ class NavigatorManager {
 
   ///
   /// navigatorKey.
-  static NavigatorState get navigator {
+  static NavigatorState? get navigator {
     return GLOBAL_KEY.currentState;
   }
 }

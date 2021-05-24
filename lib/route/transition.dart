@@ -6,13 +6,13 @@ class AirouteTransition {
   ///
   /// default scale animation
   static Widget _scale(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget page,
+    BuildContext? context,
+    Animation<double>? animation,
+    Animation<double>? secondaryAnimation,
+    Widget? page,
   ) {
     return ScaleTransition(
-      scale: animation,
+      scale: animation!,
       alignment: Alignment.topRight,
       child: page,
     );
@@ -21,16 +21,16 @@ class AirouteTransition {
   ///
   /// default slide animation
   static Widget _slide(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget page,
+    BuildContext? context,
+    Animation<double>? animation,
+    Animation<double>? secondaryAnimation,
+    Widget? page,
   ) {
     return SlideTransition(
       position: Tween<Offset>(
         begin: const Offset(1.0, 0.0),
         end: const Offset(0.0, 0.0),
-      ).animate(animation),
+      ).animate(animation!),
       child: page,
     );
   }
@@ -38,13 +38,13 @@ class AirouteTransition {
   ///
   /// default fade animation
   static Widget _fade(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget page,
+    BuildContext? context,
+    Animation<double>? animation,
+    Animation<double>? secondaryAnimation,
+    Widget? page,
   ) {
     return FadeTransition(
-      opacity: animation,
+      opacity: animation!,
       child: page,
     );
   }
@@ -52,13 +52,13 @@ class AirouteTransition {
   ///
   /// default rotation animation
   static Widget _rotation(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget page,
+    BuildContext? context,
+    Animation<double>? animation,
+    Animation<double>? secondaryAnimation,
+    Widget? page,
   ) {
     return RotationTransition(
-      turns: animation,
+      turns: animation!,
       alignment: Alignment.center,
       child: page,
     );

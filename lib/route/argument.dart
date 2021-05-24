@@ -13,19 +13,19 @@ class AirArgument {
 
   ///
   /// [key] is the primary id.
-  Key key;
+  Key? key;
 
   ///
   /// [tag] is the tag/flag.
-  String tag;
+  String? tag;
 
   ///
   /// [routeName]
-  String routeName;
+  String? routeName;
 
   ///
   /// [isInitialRoute]
-  bool isInitialRoute;
+  bool? isInitialRoute;
 
   ///
   /// [argument] is the data.

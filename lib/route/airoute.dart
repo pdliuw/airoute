@@ -6,25 +6,25 @@ class Airoute {
   ///
   /// Create MaterialApp.
   static MaterialApp createMaterialApp({
-    Key key,
-    GlobalKey<NavigatorState> navigatorKey,
-    Widget home,
+    Key? key,
+    GlobalKey<NavigatorState>? navigatorKey,
+    Widget? home,
     Map<String, WidgetBuilder> routes = const <String, WidgetBuilder>{},
-    String initialRoute,
-    RouteFactory onGenerateRoute,
-    RouteFactory onUnknownRoute,
+    String? initialRoute,
+    RouteFactory? onGenerateRoute,
+    RouteFactory? onUnknownRoute,
     List<NavigatorObserver> navigatorObservers = const <NavigatorObserver>[],
-    TransitionBuilder builder,
+    TransitionBuilder? builder,
     String title = '',
-    GenerateAppTitle onGenerateTitle,
-    Color color,
-    ThemeData theme,
-    ThemeData darkTheme,
+    GenerateAppTitle? onGenerateTitle,
+    Color? color,
+    ThemeData? theme,
+    ThemeData? darkTheme,
     ThemeMode themeMode = ThemeMode.system,
-    Locale locale,
-    Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates,
-    LocaleListResolutionCallback localeListResolutionCallback,
-    LocaleResolutionCallback localeResolutionCallback,
+    Locale? locale,
+    Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates,
+    LocaleListResolutionCallback? localeListResolutionCallback,
+    LocaleResolutionCallback? localeResolutionCallback,
     Iterable<Locale> supportedLocales = const <Locale>[Locale('en', 'US')],
     bool debugShowMaterialGrid = false,
     bool showPerformanceOverlay = false,
@@ -32,8 +32,8 @@ class Airoute {
     bool checkerboardOffscreenLayers = false,
     bool showSemanticsDebugger = false,
     bool debugShowCheckedModeBanner = true,
-    Map<LogicalKeySet, Intent> shortcuts,
-    Map<Type, Action<Intent>> actions,
+    Map<LogicalKeySet, Intent>? shortcuts,
+    Map<Type, Action<Intent>>? actions,
   }) {
     return AirouteApp.createMaterialApp(
       key: key,
@@ -70,25 +70,25 @@ class Airoute {
   ///
   /// Create CupertinoApp.
   static CupertinoApp createCupertinoApp({
-    Key key,
-    GlobalKey<NavigatorState> navigatorKey,
-    Widget home,
+    Key? key,
+    GlobalKey<NavigatorState>? navigatorKey,
+    Widget? home,
     Map<String, WidgetBuilder> routes = const <String, WidgetBuilder>{},
-    String initialRoute,
-    RouteFactory onGenerateRoute,
-    RouteFactory onUnknownRoute,
+    String? initialRoute,
+    RouteFactory? onGenerateRoute,
+    RouteFactory? onUnknownRoute,
     List<NavigatorObserver> navigatorObservers = const <NavigatorObserver>[],
-    TransitionBuilder builder,
+    TransitionBuilder? builder,
     String title = '',
-    GenerateAppTitle onGenerateTitle,
-    Color color,
-    ThemeData theme,
-    ThemeData darkTheme,
+    GenerateAppTitle? onGenerateTitle,
+    Color? color,
+    ThemeData? theme,
+    ThemeData? darkTheme,
     ThemeMode themeMode = ThemeMode.system,
-    Locale locale,
-    Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates,
-    LocaleListResolutionCallback localeListResolutionCallback,
-    LocaleResolutionCallback localeResolutionCallback,
+    Locale? locale,
+    Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates,
+    LocaleListResolutionCallback? localeListResolutionCallback,
+    LocaleResolutionCallback? localeResolutionCallback,
     Iterable<Locale> supportedLocales = const <Locale>[Locale('en', 'US')],
     bool debugShowMaterialGrid = false,
     bool showPerformanceOverlay = false,
@@ -96,8 +96,8 @@ class Airoute {
     bool checkerboardOffscreenLayers = false,
     bool showSemanticsDebugger = false,
     bool debugShowCheckedModeBanner = true,
-    Map<LogicalKeySet, Intent> shortcuts,
-    Map<Type, Action<Intent>> actions,
+    Map<LogicalKeySet, Intent>? shortcuts,
+    Map<Type, Action<Intent>>? actions,
   }) {
     return AirouteApp.createCupertinoApp(
       key: key,
@@ -132,25 +132,25 @@ class Airoute {
   ///
   /// Create WidgetsApp.
   static WidgetsApp createWidgetsApp({
-    Key key,
-    GlobalKey<NavigatorState> navigatorKey,
-    Widget home,
+    Key? key,
+    GlobalKey<NavigatorState>? navigatorKey,
+    Widget? home,
     Map<String, WidgetBuilder> routes = const <String, WidgetBuilder>{},
-    String initialRoute,
-    RouteFactory onGenerateRoute,
-    RouteFactory onUnknownRoute,
+    String? initialRoute,
+    RouteFactory? onGenerateRoute,
+    RouteFactory? onUnknownRoute,
     List<NavigatorObserver> navigatorObservers = const <NavigatorObserver>[],
-    TransitionBuilder builder,
+    TransitionBuilder? builder,
     String title = '',
-    GenerateAppTitle onGenerateTitle,
-    Color color,
-    ThemeData theme,
-    ThemeData darkTheme,
+    GenerateAppTitle? onGenerateTitle,
+    required color,
+    ThemeData? theme,
+    ThemeData? darkTheme,
     ThemeMode themeMode = ThemeMode.system,
-    Locale locale,
-    Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates,
-    LocaleListResolutionCallback localeListResolutionCallback,
-    LocaleResolutionCallback localeResolutionCallback,
+    Locale? locale,
+    Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates,
+    LocaleListResolutionCallback? localeListResolutionCallback,
+    LocaleResolutionCallback? localeResolutionCallback,
     Iterable<Locale> supportedLocales = const <Locale>[Locale('en', 'US')],
     bool debugShowMaterialGrid = false,
     bool showPerformanceOverlay = false,
@@ -158,8 +158,8 @@ class Airoute {
     bool checkerboardOffscreenLayers = false,
     bool showSemanticsDebugger = false,
     bool debugShowCheckedModeBanner = true,
-    Map<LogicalKeySet, Intent> shortcuts,
-    Map<Type, Action<Intent>> actions,
+    Map<LogicalKeySet, Intent>? shortcuts,
+    Map<Type, Action<Intent>>? actions,
   }) {
     return AirouteApp.createWidgetsApp(
       key: key,
@@ -194,10 +194,10 @@ class Airoute {
   ///
   /// Replace.
   static pushReplacementNamed({
-    String routeName,
+    required String routeName,
     dynamic argument,
   }) {
-    return NavigatorManager.getInstance().pushReplacementNamed(
+    return NavigatorManager.getInstance()?.pushReplacementNamed(
       routeName: routeName,
       argument: argument,
     );
@@ -206,10 +206,10 @@ class Airoute {
   ///
   /// Push.
   static pushNamed({
-    String routeName,
+    required String routeName,
     dynamic argument,
   }) {
-    return NavigatorManager.getInstance().pushNamed(
+    return NavigatorManager.getInstance()?.pushNamed(
       routeName: routeName,
       argument: argument,
     );
@@ -217,10 +217,10 @@ class Airoute {
 
   ///
   /// push
-  static Future<T> push<T extends Object>({
-    @required Route<T> route,
+  static Future<T?>? push<T extends Object>({
+    required Route<T> route,
   }) {
-    return NavigatorManager.getInstance().push(
+    return NavigatorManager.getInstance()?.push(
       route: route,
     );
   }
@@ -228,12 +228,12 @@ class Airoute {
   ///
   /// Push with animation.
   static pushNamedWithAnimation({
-    @required String routeName,
+    required String routeName,
     dynamic argument,
     RoutePageAnimation routePageAnimation = AirouteTransition.Fade,
     Duration duration = const Duration(milliseconds: 500),
   }) {
-    return NavigatorManager.getInstance().pushNamedWithAnimation(
+    return NavigatorManager.getInstance()?.pushNamedWithAnimation(
       routeName: routeName,
       argument: argument,
       routePageAnimation: routePageAnimation,
@@ -246,7 +246,7 @@ class Airoute {
   static pop({
     dynamic result,
   }) {
-    NavigatorManager.getInstance().pop(
+    NavigatorManager.getInstance()?.pop(
       result: result,
     );
   }
@@ -254,9 +254,9 @@ class Airoute {
   ///
   /// PopUntil[untilRouteName].
   static popUntil({
-    String untilRouteName,
+    required String untilRouteName,
   }) {
-    NavigatorManager.getInstance().popUntil(
+    NavigatorManager.getInstance()?.popUntil(
       untilRouteName: untilRouteName,
     );
   }
@@ -264,12 +264,12 @@ class Airoute {
   ///
   /// Push[newRouteName]and remove until [untilRouteName].
   static pushNamedAndRemoveUntil({
-    @required String newRouteName,
-    String untilRouteName,
+    required String newRouteName,
+    required String untilRouteName,
     dynamic argument,
     RoutePageAnimation routePageAnimation = AirouteTransition.Fade,
   }) {
-    NavigatorManager.getInstance().pushNamedAndRemoveUntil(
+    NavigatorManager.getInstance()?.pushNamedAndRemoveUntil(
       newRouteName: newRouteName,
       untilRouteName: untilRouteName,
       argument: argument,
