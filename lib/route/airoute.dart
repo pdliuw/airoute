@@ -217,7 +217,7 @@ class Airoute {
 
   ///
   /// push
-  static Future<T?>? push<T extends Object>({
+  static Future<T?>? push<T extends Object?>({
     required Route<T> route,
   }) {
     return NavigatorManager.getInstance()?.push(
@@ -265,7 +265,7 @@ class Airoute {
   /// Push[newRouteName]and remove until [untilRouteName].
   static pushNamedAndRemoveUntil({
     required String newRouteName,
-    required String untilRouteName,
+    String? untilRouteName,
     dynamic argument,
     RoutePageAnimation routePageAnimation = AirouteTransition.Fade,
   }) {

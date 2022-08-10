@@ -94,8 +94,7 @@ class NavigatorManager {
     required String routeName,
     dynamic argument,
   }) {
-    RouteSettings routeSettings =
-        RouteSettings(name: routeName, arguments: argument);
+    RouteSettings routeSettings = RouteSettings(name: routeName, arguments: argument);
 
     WidgetBuilder widgetBuilder = _route[routeSettings.name]!;
     Widget widget = widgetBuilder(navigator!.context);
@@ -126,10 +125,10 @@ class NavigatorManager {
 
   ///
   /// push
-  Future<T?>? push<T extends Object>({
+  Future<T?> push<T extends Object?>({
     required Route<T> route,
   }) {
-    return navigator?.push(route);
+    return navigator!.push(route);
   }
 
   ///
@@ -147,14 +146,12 @@ class NavigatorManager {
           name: routeName,
           arguments: argument,
         ),
-        pageBuilder: (BuildContext context, Animation<double> animation,
-            Animation<double> secondaryAnimation) {
+        pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
           //WidgetBuilder
           WidgetBuilder widgetBuilder = _route[routeName]!;
           Widget? widget = widgetBuilder(navigator!.context);
           if (widget is AirArgumentReceiver) {
-            AirArgumentReceiver argumentReceiver =
-                widget as AirArgumentReceiver;
+            AirArgumentReceiver argumentReceiver = widget as AirArgumentReceiver;
             argumentReceiver.receive(
               AirArgument(
                 argument: argument,
@@ -187,7 +184,7 @@ class NavigatorManager {
   ///
   /// PopUntil[untilRouteName].
   popUntil({
-    required String untilRouteName,
+    required String? untilRouteName,
   }) {
     bool isPopAll = untilRouteName == null ? true : false;
     if (isPopAll) {
@@ -201,7 +198,7 @@ class NavigatorManager {
   /// Push[newRouteName]and remove until [untilRouteName].
   pushNamedAndRemoveUntil({
     required String newRouteName,
-    required String untilRouteName,
+    required String? untilRouteName,
     dynamic argument,
     RoutePageAnimation routePageAnimation = AirouteTransition.Slide,
   }) {

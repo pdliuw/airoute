@@ -2,11 +2,7 @@ part of airoute;
 
 ///
 /// Animation
-typedef RoutePageAnimation = Widget Function(
-    BuildContext? context,
-    Animation<double>? animation,
-    Animation<double>? secondaryAnimation,
-    Widget? page);
+typedef RoutePageAnimation = Widget Function(BuildContext? context, Animation<double>? animation, Animation<double>? secondaryAnimation, Widget? page);
 
 ///
 /// Route manager
@@ -107,8 +103,7 @@ class RouteManager extends NavigatorObserver {
     if (routeName != null) {
       return PageRouteBuilder(
         settings: RouteSettings(name: routeName),
-        pageBuilder: (BuildContext context, Animation animation,
-            Animation secondaryAnimation) {
+        pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
           return _route[routeName]!();
         },
       ).navigator?.context;
@@ -163,14 +158,12 @@ class RouteManager extends NavigatorObserver {
           name: routeName,
           arguments: argument,
         ),
-        pageBuilder: (BuildContext context, Animation<double> animation,
-            Animation<double> secondaryAnimation) {
+        pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
           //WidgetBuilder
           AirouteBuilder airouteBuilder = _route[routeName]!;
           Widget widget = airouteBuilder();
           if (widget is AirArgumentReceiver) {
-            AirArgumentReceiver argumentReceiver =
-                widget as AirArgumentReceiver;
+            AirArgumentReceiver argumentReceiver = widget as AirArgumentReceiver;
             argumentReceiver.receive(
               AirArgument(
                 argument: argument,
@@ -203,7 +196,7 @@ class RouteManager extends NavigatorObserver {
   ///
   /// PopUntil[untilRouteName].
   popUntil({
-    required String untilRouteName,
+    required String? untilRouteName,
   }) {
     bool isPopAll = untilRouteName == null ? true : false;
     if (isPopAll) {
@@ -221,7 +214,7 @@ class RouteManager extends NavigatorObserver {
   /// Push[newRouteName]and remove until [untilRouteName].
   pushNamedAndRemoveUntil({
     required String newRouteName,
-    required String untilRouteName,
+    required String? untilRouteName,
     dynamic argument,
     RoutePageAnimation routePageAnimation = AirouteTransition.Slide,
   }) {
@@ -289,8 +282,7 @@ class RouteManager extends NavigatorObserver {
   @override
   void didRemove(Route<dynamic> removedRoute, Route<dynamic>? oldRoute) {
     super.didRemove(removedRoute, oldRoute);
-    if (removedRoute is CupertinoPageRoute ||
-        removedRoute is MaterialPageRoute) {
+    if (removedRoute is CupertinoPageRoute || removedRoute is MaterialPageRoute) {
       _mRoutes!.remove(removedRoute);
       routeObserver();
     }

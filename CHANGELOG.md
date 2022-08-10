@@ -1,3 +1,7 @@
+## [3.0.0]
+
+* adapter: flutter v3.0.0
+
 ## [2.2.0]
 
 * upgrade: flutter: ">=1.20.0"
