@@ -1,3 +1,7 @@
+## [3.2.4]
+
+* adapter: flutter v3.2.4
+
 ## [3.0.0]
 
 * adapter: flutter v3.0.0

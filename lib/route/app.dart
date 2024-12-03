@@ -181,8 +181,6 @@ class AirouteApp {
       localeResolutionCallback: localeResolutionCallback,
       supportedLocales: supportedLocales,
       showPerformanceOverlay: showPerformanceOverlay,
-      checkerboardRasterCacheImages: checkerboardRasterCacheImages,
-      checkerboardOffscreenLayers: checkerboardOffscreenLayers,
       showSemanticsDebugger: showSemanticsDebugger,
       debugShowCheckedModeBanner: debugShowCheckedModeBanner,
     );

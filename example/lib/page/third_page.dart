@@ -5,6 +5,7 @@ import 'package:airoute/airoute.dart';
 /// ThirdPage
 class ThirdPage extends StatefulWidget with AirArgumentReceiver {
   dynamic _content;
+
   @override
   State<StatefulWidget> createState() {
     return _ThirdPageState();
@@ -38,14 +39,14 @@ class _ThirdPageState extends State<ThirdPage> {
               ),
               textAlign: TextAlign.center,
             ),
-            RaisedButton.icon(
+            ElevatedButton.icon(
               onPressed: () {
                 Airoute.popUntil(untilRouteName: "/SecondPage");
               },
               icon: Icon(Icons.arrow_back),
               label: Text("Back"),
             ),
-            RaisedButton.icon(
+            ElevatedButton.icon(
               onPressed: () {
                 Airoute.pushNamed(routeName: "/ThirdPage", argument: "Repeat");
               },
